@@ -1,3 +1,2 @@
 #!/bin/bash
-realpath -f
-./0-current_working_directory
+realpath -f ./0-current_working_directory
