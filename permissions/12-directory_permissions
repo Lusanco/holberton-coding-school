@@ -1,2 +1,2 @@
 #!/bin/bash
-mkdir my_dir chmod +drwx--x--x
+chmod 751 /my_dir
