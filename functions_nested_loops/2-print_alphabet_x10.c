@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include "main.h"
-
+/**
+ * main - print alphabet x10
+ *
+ * Return: void
+ */
 void print_alphabet_x10(void)
 {
 	char abz;
