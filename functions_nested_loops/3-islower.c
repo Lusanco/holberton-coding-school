@@ -4,6 +4,10 @@
 
 /**
  * _islower - Checks lowercase
+ *
+ * @c: Takes in a letter
+ *
+ * Return: c
  */
 
 int _islower(int c)
