@@ -5,14 +5,14 @@
  * _abs - compute the absolute value
  * of an integer
  *
- * @int: takes an integer
+ * @n: takes an integer
  *
  * Return: int
  */
 
 int _abs(int n)
 {
-	if (n <0)
+	if (n < 0)
 	{
 		return (-n);
 	}
