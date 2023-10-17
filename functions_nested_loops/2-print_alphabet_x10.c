@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "main.h"
+
 /**
- * print_alphabet_10 - print alphabet x10
- *
- * Return: void
+ * print_alphabet_x10 - print alphabet
+ * ten times
  */
+
 void print_alphabet_x10(void)
 {
 	char abz;
