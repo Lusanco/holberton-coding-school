@@ -1,17 +1,7 @@
 CC=gcc
-CFLAGS=-g -Wall
-LDFLAGS=
-TARGET=school
 SRC=main.c school.c
 OBJ=$(SRC:.c=.o)
+NAME=school
 
-all: $(TARGET)
-
-$(TARGET): $(OBJ)
-	$(CC) $(LDFLAGS) -o $@ $^
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-clean:
-	rm -f $(OBJ) $(TARGET)
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
