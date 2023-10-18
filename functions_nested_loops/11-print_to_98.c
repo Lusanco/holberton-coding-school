@@ -10,7 +10,6 @@ void print_digit(int n);
  *
  * @n: The starting number.
  */
-
 void print_to_98(int n)
 {
 	if (n <= 98)
@@ -32,16 +31,10 @@ void print_to_98(int n)
  * @c: The step size (1 for
  * ascending, -1 for descending).
  */
-
 void print_numbers(int a, int b, int c)
 {
 	int d = a;
 
-	if (a < 0)
-	{
-		_putchar('-');
-		d = -a;
-	}
 	while ((c == 1 && d <= b) || (c == -1 && d >= b))
 	{
 		print_digit(d);
@@ -61,9 +54,13 @@ void print_numbers(int a, int b, int c)
  *
  * @n: The digit to print.
  */
-
 void print_digit(int n)
 {
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
 	if (n > 9)
 	{
 		print_digit(n / 10);
