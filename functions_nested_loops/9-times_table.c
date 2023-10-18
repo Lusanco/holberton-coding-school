@@ -11,7 +11,7 @@ void times_table(void)
 	int fila;
 	int columna;
 	int total;
-
+	
 	for (fila = 0; fila <= 9; fila++)
 	{
 		for (columna = 0; columna <= 9; columna++)
@@ -39,4 +39,4 @@ void times_table(void)
 		}
 		_putchar('\n');
 	}
-}
+}}
