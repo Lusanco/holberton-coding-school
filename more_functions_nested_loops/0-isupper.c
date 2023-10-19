@@ -6,7 +6,7 @@
  *
  * @c: takes int as value
  *
- * Return: value of c
+ * Return: value of n
  */
 
 int _isupper(int c)
