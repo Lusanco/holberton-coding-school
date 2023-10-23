@@ -28,7 +28,7 @@ void rev_string(char *s)
 	}
 	i = 0;
 	j = 0;
-	while (i <= end)
+	while (i <= end && temp[j] != '\0')
 	{
 		s[i] = temp[j];
 		i++;
