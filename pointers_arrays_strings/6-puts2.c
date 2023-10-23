@@ -12,4 +12,21 @@
 
 void puts2(char *str)
 {
-	for 
+	int i = 0;
+	int j = 0;
+	char a;
+
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	i = i - 1;
+	for (; j <= i;)
+	{
+		a = str[j];
+		_putchar(a);
+		j++;
+		j++;
+	}
+	_putchar('\n');
+}
