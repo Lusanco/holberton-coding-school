@@ -13,7 +13,7 @@
 
 char *_strchr(char *s, char c)
 {
-	char *myNull = '\0';
+	/*char *myNull = '\0';*/
 
 	while (*s != '\0')
 	{
@@ -27,5 +27,6 @@ char *_strchr(char *s, char c)
 	{
 		return (s);
 	}
-	return (myNull);
+	/*return (myNull);*/
+	return (s);
 }
