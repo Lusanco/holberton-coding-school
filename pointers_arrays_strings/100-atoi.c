@@ -1,38 +1,38 @@
 #include "main.h"
 
 /**
- * _atoi - Write a function that
- * convert a string to an integer.
+ * _atoi - Convert a string to an integer.
  *
- * @s: takes string as input.
+ * @s: The input string.
  *
- * Return: an integer.
+ * Return: The integer value or 0 if no valid integer is found.
  */
-
 int _atoi(char *s)
 {
-	int i = 0, j = 0, res = 0;
-	int sig = 1;
+    int i = 0, res = 0;
+    int sig = 1;
+    int found_digit = 0;
 
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	i--;
-	for (j = 0; j <= i; j++)
-	{
-		if (s[j] == '-')
-		{
-			sig *= -1;
-		}
-		if (s[j] >= '0' && s[j] <= '9')
-		{
-			res = res * 10 + (s[j] - '0');
-			if (s[j + 1] < '0' || s[j + 1] > '9')
-			{
-				j = i + 1;
-			}
-		}
-	}
-	return (res * sig);
+    while (s[i] != '\0')
+    {
+        if (s[i] == '-' && !found_digit)
+            sig *= -1;
+        else if (s[i] >= '0' && s[i] <= '9')
+        {
+            found_digit = 1;
+            if (res > (2147483647 - (s[i] - '0')) / 10)
+            {
+                if (sig == 1)
+                    return 2147483647;
+                else
+                    return -2147483648;
+            }
+            res = res * 10 + (s[i] - '0');
+        }
+        else if (found_digit)
+            break;
+        i++;
+    }
+
+    return res * sig;
 }
