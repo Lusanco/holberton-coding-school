@@ -9,7 +9,7 @@
  * @s: Original string char pointer.
  *
  * Return: a string or nul depending if
- * strpbrk is true
+ * _strpbrk is true
  */
 
 char *_strpbrk(char *s, char *accept)
