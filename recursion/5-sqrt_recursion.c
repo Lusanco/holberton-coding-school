@@ -13,15 +13,15 @@
 
 int squirt(int n, int g)
 {
-    if (g * g == n)
-    {
-        return g;
-    }
-    if (g * g > n)
-    {
-        return -1;
-    }
-    return squirt(n, g + 1);
+	if (g * g == n)
+	{
+		return g;
+	}
+	if (g * g > n)
+	{
+		return -1;
+	}
+	return squirt(n, g + 1);
 }
 
 /**
@@ -36,9 +36,9 @@ int squirt(int n, int g)
 
 int _sqrt_recursion(int n)
 {
-    if (n < 0)
-    {
-        return -1;
-    }
-    return squirt(n, 1);
+	if (n < 0)
+	{
+		return -1;
+	}
+	return squirt(n, 1);
 }
