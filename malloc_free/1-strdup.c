@@ -16,24 +16,19 @@
 char *_strdup(char *str)
 {
 	char *pointer;
-	int i = 0, j = 0;
+	unsigned int i = 0;
 
 	if (str == NULL)
 	{
 		return (NULL);
 	}
 
-	while (str[i] != '\0')
+	pointer = malloc(sizeof(str));
+
+	while (i <= sizeof(str))
 	{
+		pointer[i] = str[i];
 		i++;
-	}
-
-	pointer = malloc((i++) * sizeof(char));
-
-	while (j < (i + 1))
-	{
-		pointer[j] = str[j];
-		j++;
 	}
 
 	return (pointer);
