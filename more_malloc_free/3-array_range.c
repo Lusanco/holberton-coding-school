@@ -31,12 +31,6 @@ int *array_range(int min, int max)
 		return (NULL);
 	}
 
-	/*if (min == max)
-	{
-		arr[0] = min;
-		return (arr);
-	}*/
-
 	while (min <= max)
 	{
 		arr[i] = min;
