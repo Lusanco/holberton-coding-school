@@ -11,19 +11,19 @@
 
 void *malloc_checked(unsigned int b)
 {
-	char *ptr;
+	char *p;
 
 	if (b <= 0)
 	{
 		exit(98);
 	}
 
-	ptr = malloc(sizeof(char) * b);
+	p = malloc(sizeof(char) * b);
 
-	if (ptr == NULL)
+	if (p == NULL)
 	{
 		exit(98);
 	}
 
-	return (ptr);
+	return (p);
 }
