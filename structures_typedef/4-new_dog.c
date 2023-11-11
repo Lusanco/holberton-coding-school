@@ -1,7 +1,7 @@
 #include "dog.h"
 
 /**
- * _strdup - Custom string duplication function.
+ * my_strdup - Custom string duplication function.
  *
  * @str: String to duplicate.
  *
@@ -13,7 +13,7 @@ char *my_strdup(char *str)
 {
 	char *dup_str;
 	int len = 0, i;
-	
+
 	if (str == NULL)
 	{
 		return (NULL);
@@ -23,7 +23,7 @@ char *my_strdup(char *str)
 	{
 		len++;
 	}
-	
+
 	dup_str = malloc((len + 1) *
 			sizeof(char));
 
