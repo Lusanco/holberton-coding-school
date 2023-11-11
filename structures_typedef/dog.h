@@ -2,7 +2,7 @@
 #define DOG_H
 
 /**
- * dog - struct of a dog.
+ * struct dog - struct of a dog.
  *
  * @name: name element char pointer for dog.
  * @age: age element float for dog.
