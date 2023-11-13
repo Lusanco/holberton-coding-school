@@ -5,7 +5,7 @@
  * function given as a parameter on each
  * element of an array.
  *
- * @array:
+ * @array: array pointer
  * @size: the size of the array
  * @action: pointer to the function
  */
