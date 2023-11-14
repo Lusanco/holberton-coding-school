@@ -79,6 +79,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			{
 				printf("(nil)%s", separator);
 			}
+		}
 		else
 		{
 			if (p
@@ -92,6 +93,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			}
 		}
 	}
-	va_end(my_args);
+	va_end(args);
 	printf("\n");
 }
