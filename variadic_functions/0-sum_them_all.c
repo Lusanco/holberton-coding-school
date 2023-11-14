@@ -1,11 +1,12 @@
-/**
+/*
  * 0. Beauty is variable, ugliness
  * is constant.
  *
  * Write a function that returns
  * the sum of all its parameters.
  *
- * Prototype:
+ * Prototype
+ *
  * int sum_them_all
  * (const unsigned int n, ...);
  *
@@ -41,5 +42,39 @@
 
 int sum_them_all(const unsigned int n, ...)
 {
+	unsigned int i;
+	int x = 0;
 
+/*
+ * Declares args of type va_list.
+ * Holds list of arguments.
+ */
+	va_list args;
+
+/* If n == 0, return 0 */
+	if (n == 0)
+	{
+		return (0);
+	}
+
+/*
+ * initializes args (va_list).
+ * Point to the first argument
+ * after named parameter (n).
+ */
+	va_start(args, n);
+
+	for (i = 0; i < n; i++)
+	{
+
+/* Store sum of arguments */
+		x += va_arg(args, int);
+	}
+
+/*
+ * Clean up args (va_list) after
+ * all arguments been processed.
+ */
+	va_end(args);
+	return (x);
 }
