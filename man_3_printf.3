@@ -1,0 +1,54 @@
+.TH MAN_3_PRINTF 3 "November 2023" "Version 1.0" "User Manual"
+
+.SH NAME
+_printf \- format and print data
+
+.SH SYNOPSIS
+.B #include <stdio.h>
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+The \fB_printf\fR function writes formatted output to the standard output stream (stdout).
+
+.SH RETURN VALUE
+The function returns the number of characters written (excluding the null byte used to terminate the output to strings).
+
+.SH FORMAT SPECIFIERS
+The \fB_printf\fR function supports various format specifiers, including:
+.TP
+\fB%c\fR - Character
+.TP
+\fB%d\fR, \fB%i\fR - Integer
+.TP
+\fB%s\fR - String
+.TP
+\fB%f\fR - Float
+
+.SH EXAMPLES
+Print a string:
+.B
+.B #include <stdio.h>
+.B int main() {
+.B     _printf("Hello, %s!\n", "world");
+.B     return 0;
+.B }
+.B
+This will output:
+.B
+Hello, world!
+
+.SH SEE ALSO
+.BR printf (3),
+.BR fprintf (3),
+.BR sprintf (3),
+.BR snprintf (3),
+.BR vprintf (3).
+
+.SH AUTHOR
+Your Name
+
+.SH BUGS
+No known bugs.
+
+.SH COPYRIGHT
+Copyright (C) 2023 Your Organization. This program is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
