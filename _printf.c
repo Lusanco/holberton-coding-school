@@ -2,39 +2,54 @@
 
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int count = 0, i;
-	char current_char, temp;
+	int printedChars = 0;
+	char c, *s = NULL;
 
-	va_start(args, format);
+	va_list argList;
+	va_start(argList, format);
 
-	for (i = 0; format[i] != '\0'; i++)
+	if (format == NULL)
+		return (-1);
+	while (*format)
 	{
-		current_char = format[i];
-
-		if (current_char == '%' && format[i + 1] != '\0')
+		if (*format != '%')
 		{
-			i++;
-			switch (format[i])
-			{
-				case 'c':
-					temp = va_arg(args, int);
-					count += write(1, &temp, 1);
-					break;
-				case 's':
-					count += write(1, va_arg(args, char *), 1);
-					break;
-				default:
-					count += write(1, "%", 1);
-					count += write(1, &format[i], 1);
-					break;
-			}
+			write(1, format, 1);
+			printedChars++;
 		}
 		else
 		{
-			count += write(1, &current_char, 1);
+			format++;
+			if (*format == '\0')
+				break;
+			if (*format == '%')
+			{
+				write(1, format, 1);
+				printedChars++;
+			}
+			if (*format == 'c')
+			{
+				c = va_arg(argList, int);
+				write(1, &c, 1);
+				printedChars++;
+			}
+			if (*format == 's')
+			{
+				s = va_arg(argList, char*);
+				if (s != NULL)
+				{
+					write(1, s, _strlen(s));
+					printedChars += _strlen(s);
+				}
+				else
+				{
+					write(1, "(null)", _strlen("(null)"));
+					printedChars += strlen("(null)");
+				}
+			}
 		}
+		format++;
 	}
-	va_end(args);
-	return (count);
+	va_end(argList);
+	return(printedChars);
 }
