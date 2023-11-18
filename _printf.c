@@ -14,8 +14,8 @@
 
 static void print_format(char format, va_list argList, int *printedChars)
 {
-	char c;
-	char *s;
+	char c, *s, digit;
+	int num, divisor;
 
 	switch (format)
 	{
@@ -40,6 +40,29 @@ static void print_format(char format, va_list argList, int *printedChars)
 			write(1, "(null)", _strlen("(null)"));
 			*printedChars += _strlen("(null)");
 		}
+		break;
+	case 'd':
+	case 'i':
+		num = va_arg(argList, int);
+		divisor = 1;
+		if (num < 0)
+		{
+			write(1, "-", 1);
+			(*printedChars)++;
+			num = -num;
+		}
+		while (num / divisor > 9)
+			divisor *= 10;
+		while (divisor != 0)
+		{
+			digit = '0' + num / divisor;
+			write(1, &digit, 1);
+			(*printedChars)++;
+			num %= divisor;
+			divisor /= 10;
+		}
+		break;
+	default:
 		break;
 	}
 }
