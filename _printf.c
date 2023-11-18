@@ -9,7 +9,7 @@
  * @printedChars: Pointer to the variable
  * holding the count of printed characters.
  *
- * Return: None.
+ * Return: None.i
  */
 
 static void print_format(char format, va_list argList, int *printedChars)
@@ -62,7 +62,6 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-
 	while (*format)
 	{
 		if (*format != '%')
