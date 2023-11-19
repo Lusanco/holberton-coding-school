@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+void numFormat(char format, va_list argList, int *printedChars);
+void charFormat(char format, va_list argList, int *printedChars);
 int _printf(const char *format, ...);
 int _strlen(char *s);
 
