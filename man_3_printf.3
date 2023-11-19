@@ -4,38 +4,52 @@
 _printf \- format and print data
 
 .SH SYNOPSIS
-.B #include <stdio.h>
+.B #include "main.h"
 .B int _printf(const char *format, ...);
 
 .SH DESCRIPTION
-The \fB_printf\fR function writes formatted output to the standard output stream (stdout).
+The \fB_printf\fR function provides a simplified implementation of the formatted output functionality similar to the standard C library printf function. It accepts a format string, which can contain conversion specifiers. The function is designed to handle the following conversion specifiers:
 
-.SH RETURN VALUE
-The function returns the number of characters written (excluding the null byte used to terminate the output to strings).
+.TP
+.B %c
+Prints a single character specified by the corresponding argument.
 
-.SH FORMAT SPECIFIERS
-The \fB_printf\fR function supports various format specifiers, including:
 .TP
-\fB%c\fR - Character
+.B %s
+Prints a null-terminated string specified by the corresponding argument.
+
 .TP
-\fB%d\fR, \fB%i\fR - Integer
+.B %d, %i
+Prints a signed decimal integer specified by the corresponding argument.
+
 .TP
-\fB%s\fR - String
-.TP
-\fB%f\fR - Float
+.B %%
+Prints a percent sign.
+
+Note that this implementation does not handle flag characters, field width, precision, or length modifiers, making it a basic and lightweight alternative for simple formatted output needs.
+
+The function returns the number of characters printed, excluding the null byte used to terminate output to strings.
+
+For more details on the usage of format specifiers, refer to the printf(3) man page.
+
 
 .SH EXAMPLES
 Print a string:
-.B
-.B #include <stdio.h>
+.br
+.B #include "main.h"
+.br
 .B int main() {
-.B     _printf("Hello, %s!\n", "world");
+.br
+.B     _printf("Hello Melissa, Alfre y Emma son los mas %s!\n", "duros");
+.br
 .B     return 0;
+.br
 .B }
+.br
 .B
 This will output:
 .B
-Hello, world!
+Hello Melissa, Alfre y Emma son los mas duros!
 
 .SH SEE ALSO
 .BR printf (3),
@@ -45,7 +59,7 @@ Hello, world!
 .BR vprintf (3).
 
 .SH AUTHOR
-Your Name
+Emmanuel Maldonado and Luis Santiago
 
 .SH BUGS
 No known bugs.
