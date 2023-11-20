@@ -34,9 +34,8 @@ void charFormat(char format, va_list argList, int *printedChars)
 		}
 		else
 		{
-			/*write(1, "(null)", _strlen("(null)"));*/
-			/**printedChars += _strlen("(null)");*/
-			return (-1);
+			write(1, "(null)", _strlen("(null)"));
+			*printedChars += _strlen("(null)");
 		}
 		break;
 	default:
