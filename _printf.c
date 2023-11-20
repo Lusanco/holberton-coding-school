@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	va_start(argList, format);
 
 	if (format == NULL)
-		return (-1);
+		write(1, "(null)", _strlen("(null)"));
 	while (*format)
 	{
 
