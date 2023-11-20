@@ -12,7 +12,6 @@
 int _printf(const char *format, ...)
 {
 	int printedChars = 0;
-	/*unsigned int unum;*/
 	va_list argList;
 
 	va_start(argList, format);
@@ -31,7 +30,10 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-				break;
+			{
+				write(1, "(null)", _strlen("(null)"));
+				printedChars += _strlen("(null)");
+			}
 			if (*format == 's'
 			|| *format == 'c'
 			|| *format == '%')
@@ -39,11 +41,6 @@ int _printf(const char *format, ...)
 			if (*format == 'd'
 			|| *format == 'i')
 				numFormat(*format, argList, &printedChars);
-			/*if (*format == 'b')*/
-			/*{*/
-			/*	unum = va_arg(argList, unsigned int);*/
-			/*	binaryFormat(unum, &printedChars);*/
-			/*}*/
 		}
 		format++;
 	}
