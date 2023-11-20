@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			if (*format == '\0' || *format == ' ')
+			if (*format == '\0')
 			{
 				write(1, "(null)", _strlen("(null)"));
 				printedChars += _strlen("(null)");

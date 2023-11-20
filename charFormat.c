@@ -16,6 +16,10 @@ void charFormat(char format, va_list argList, int *printedChars)
 	{
 		char c, *s;
 
+	case ' ':
+		write(1, "(null)", _strlen("(null)"));
+		(*printedChars)++;
+		break;
 	case '%':
 		write(1, &format, 1);
 		(*printedChars)++;
