@@ -8,10 +8,7 @@
 - [Overview](#overview)
 - [Features](#features)
 - [Usage](#usage)
-- [Installation](#installation)
 - [Examples](#examples)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
