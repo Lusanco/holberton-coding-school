@@ -33,7 +33,7 @@ Call the function with the desired format string and any additional arguments:
 
 ```c
 int result = _printf("Hello, %s! The answer is %d.\n", "world", 42);
-printf("Total characters printed: %d\n", result);
+_printf("Total characters printed: %d\n", result);
 ```
 
 ## Examples
@@ -41,14 +41,22 @@ printf("Total characters printed: %d\n", result);
 Here are some examples of using the _printf function:
 
 ```C
-#include <stdio.h>
+#include "main.h"
 
 int main() {
-    int result;
 
-    result = _printf("Hello, %s! The number is %d.\n", "world", 42);
-    printf("Printed %d characters.\n", result);
+    _printf("Hello Melissa, Alfre y Emma son los mas %s!\n", "duros");
 
     return 0;
 }
 ```
+This will output:
+
+```c
+Hello Melissa, Alfre y Emma son los mas duros!
+```
+
+## Authors
+
+- [LUIS SANTIAGO](https://github.com/Lusanco)
+- [EMMANUEL MALDONADO](https://github.com/emmanuelmaldonadomaldonado)
