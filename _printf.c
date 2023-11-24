@@ -28,19 +28,22 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			format++;
 			if (*format == '\0')
 			{
 				write(1, "(null)", _strlen("(null)"));
 				printedChars += _strlen("(null)");
 			}
-			if (*format == 's'
-			|| *format == 'c'
-			|| *format == '%')
-				charFormat(*format, argList, &printedChars);
-			if (*format == 'd'
-			|| *format == 'i')
-				numFormat(*format, argList, &printedChars);
+			else
+			{
+				format++;
+				if (*format == 's'
+				|| *format == 'c'
+				|| *format == '%')
+					charFormat(*format, argList, &printedChars);
+				if (*format == 'd'
+				|| *format == 'i')
+					numFormat(*format, argList, &printedChars);
+			}
 		}
 		format++;
 	}
