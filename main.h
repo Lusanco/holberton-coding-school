@@ -5,8 +5,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <limits.h>
 
-void binaryFormat(unsigned int num, int *printedChars);
+void caseFormat(char format, va_list argList, int *printedChars);
 void numFormat(char format, va_list argList, int *printedChars);
 void charFormat(char format, va_list argList, int *printedChars);
 int _printf(const char *format, ...);

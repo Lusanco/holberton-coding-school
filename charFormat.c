@@ -43,6 +43,8 @@ void charFormat(char format, va_list argList, int *printedChars)
 		}
 		break;
 	default:
+		write(1, &format, 1);
+		(*printedChars)++;
 		break;
 	}
 }

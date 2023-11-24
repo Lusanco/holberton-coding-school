@@ -21,7 +21,13 @@ void numFormat(char format, va_list argList, int *printedChars)
 		case 'i':
 			num = va_arg(argList, int);
 			divisor = 1;
-			if (num < 0)
+			if (num == INT_MIN)
+			{
+				write(1, "-", 1);
+				(*printedChars)++;
+				num = -(num + 1);
+			}
+			else if (num < 0)
 			{
 				write(1, "-", 1);
 				(*printedChars)++;
