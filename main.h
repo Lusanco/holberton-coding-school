@@ -7,9 +7,25 @@
 #include <stdarg.h>
 #include <limits.h>
 
+/* 0._printf specifiers */
+void cFormat(va_list argList, int *printedChars);
+void sFormat(va_list argList, int *printedChars);
+void percentFormat(char format, int *printedChars);
+
+/* 1._printf specifiers */
+void nFormat(va_list argList, int *printedChars);
+
+/* 3._printf specifiers */
+void bFormat(va_list argList, int *printedChars);
+
+/* 4._printf specifiers */
+void uFormat(va_list argList, int *printedChars);
+void oFormat(va_list argList, int *printedChars);
+void xFormat(va_list argList, int *printedChars);
+void XFormat(va_list argList, int *printedChars);
+
+
 void caseFormat(char format, va_list argList, int *printedChars);
-void numFormat(char format, va_list argList, int *printedChars);
-void charFormat(char format, va_list argList, int *printedChars);
 int _printf(const char *format, ...);
 int _strlen(char *s);
 
