@@ -29,8 +29,14 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			caseFormat(*format, argList,
+			if (*format == 'b')
+				bFormat(argList,
 					&printedChars);
+			else
+			{
+				caseFormat(*format, argList,
+					&printedChars);
+			}
 		}
 		format++;
 	}
