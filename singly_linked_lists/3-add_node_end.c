@@ -1,26 +1,6 @@
 #include "lists.h"
 
 /**
- * _free_list - Free memory allocated
- * for a list_t list.
- *
- * @head: pointer to the head of the list.
- */
-
-void _free_list(list_t *head)
-{
-	list_t *temp;
-
-	while (head != NULL)
-	{
-		temp = head;
-		head = head->next;
-		free(temp->str);
-		free(temp);
-	}
-}
-
-/**
  * _strlen - Write a function that
  * returns the length of a string.
  *
