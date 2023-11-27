@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * _strlen - Write a function that
+ * _3strlen - Write a function that
  * returns the length of a string.
  *
  * @s: takes char as argument
@@ -10,7 +10,7 @@
  * of a string
  */
 
-size_t _strlen(const char *s)
+size_t _3strlen(const char *s)
 {
 	size_t len = 0;
 

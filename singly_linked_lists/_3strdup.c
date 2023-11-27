@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * _strdup - function that returns a
+ * _3strdup - function that returns a
  * pointer to a newly allocated space
  * in memory, which contains a copy of
  * the string given as a parameter.
@@ -13,7 +13,7 @@
  * if succesfull.
  */
 
-char *_strdup(const char *str)
+char *_3strdup(const char *str)
 {
 	char *pointer;
 	size_t len, i;
@@ -21,7 +21,7 @@ char *_strdup(const char *str)
 	if (str == NULL)
 		return (NULL);
 
-	len = _strlen(str);
+	len = _3strlen(str);
 	pointer = malloc((len + 1) * sizeof(char));
 
 	if (pointer == NULL)
