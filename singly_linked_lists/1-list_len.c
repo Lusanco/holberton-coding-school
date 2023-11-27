@@ -5,7 +5,7 @@
  * elements in a linked list_t list.
  *
  * @h: Pointer to the head of the list.
- * 
+ *
  * Return: Number of elements in the list.
  */
 
