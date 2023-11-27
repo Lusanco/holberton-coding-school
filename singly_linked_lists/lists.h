@@ -21,8 +21,8 @@ typedef struct list_s
 } list_t;
 
 int _putchar(char c);
-size_t _3strlen(const char *s);
-char *_3strdup(const char *str);
+size_t _strlen(const char *s);
+char *_strdup(const char *str);
 size_t print_list(const list_t *h);
 void print_num(int n);
 void print_str(const char *str);
