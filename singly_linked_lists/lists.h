@@ -23,6 +23,7 @@ typedef struct list_s
 int _putchar(char c);
 size_t _strlen(const char *s);
 char *_strdup(const char *str);
+void _free_list(list_t *head);
 size_t print_list(const list_t *h);
 void print_num(int n);
 void print_str(const char *str);
