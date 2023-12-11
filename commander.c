@@ -12,7 +12,7 @@ void commander(char *str)
 		fprintf(stderr, "Error tokenizing input\n");
 		return;
 	}
-	if (access(args[0], X_OK == -1))
+	if (access(args[0], X_OK) == -1)
 	{
 		perror("access");
 		fprintf(stderr, "Command '%s' not found\n", args[0]);
