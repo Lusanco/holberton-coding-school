@@ -15,11 +15,11 @@ int main(void)
 
 	while (toggle == 1)
 	{
-		printf("($) ");
+		if (isatty(STDIN_FILENO))
+			printf("($) ");
 		bytes = getline(&str, &len, stdin);
 		if (bytes == -1)
 		{
-			printf("\n");
 			toggle = 0;
 		}
 		else
@@ -36,6 +36,10 @@ int main(void)
 				commander(str);
 			}
 		}
+		if (!isatty(STDIN_FILENO))
+			fflush(stdout);
+		else
+			printf("\n");
 	}
 	free(str);
 	return (0);

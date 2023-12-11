@@ -27,7 +27,7 @@ char **tokenizer(char *str)
 		free(tokens);
 		return (NULL);
 	}
-	token = strtok(str, " ");
+	token = strtok(dup, " ");
 	while (token)
 	{
 		tokens[i] = strdup(token);
