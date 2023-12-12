@@ -14,10 +14,9 @@ void commander(char *str)
 	}
 	if (access(args[0], X_OK) == -1)
 	{
-		perror("access");
-		fprintf(stderr, "Command '%s' not found\n", args[0]);
+		fprintf(stderr, "./hsh: %d: %s: not found\n",getpid(), args[0]);
 		freetok(args);
-		return;
+		exit(127);
 	}
 	pid = fork();
 	if (pid == -1)
@@ -32,7 +31,6 @@ void commander(char *str)
 		perror("execve");
 		fprintf(stderr, "./hsh: %d: %s: not found\n", getpid(), args[0]);
 		freetok(args);
-		/*exit(EXIT_FAILURE);*/
 		exit(127);
 	}
 	else
