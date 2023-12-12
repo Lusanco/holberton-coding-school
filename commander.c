@@ -1,5 +1,7 @@
 #include "header.h"
 
+extern char **environ;
+
 void commander(char *str)
 {
 	pid_t pid;
@@ -28,7 +30,7 @@ void commander(char *str)
 	}
 	else if (pid == 0)
 	{
-		execve(args[0], args, NULL);
+		execve(args[0], args, environ);
 		perror("execve");
 		freetok(args);
 		exit(EXIT_FAILURE);

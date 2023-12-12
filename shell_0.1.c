@@ -19,9 +19,7 @@ int main(void)
 			printf("($) ");
 		bytes = getline(&str, &len, stdin);
 		if (bytes == -1)
-		{
 			toggle = 0;
-		}
 		else
 		{
 			if (str[bytes - 1] == '\n')
@@ -32,9 +30,7 @@ int main(void)
 			if (strcasecmp(str, "exit") == 0)
 				toggle = 0;
 			else
-			{
 				commander(str);
-			}
 		}
 		if (!isatty(STDIN_FILENO))
 			fflush(stdout);
