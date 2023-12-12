@@ -14,7 +14,7 @@ void commander(char *str)
 	}
 	if (access(args[0], X_OK) == -1)
 	{
-		fprintf(stderr, "./hsh: %d: %s: not found\n", pid, args[0]);
+		fprintf(stderr, "./hsh: %d: %s: not found\n", 1, args[0]);
 		freetok(args);
 		exit(127);
 	}
