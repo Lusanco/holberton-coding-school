@@ -1,7 +1,5 @@
 #include "header.h"
 
-extern char **environ;
-
 void commander(char *str)
 {
 	pid_t pid;

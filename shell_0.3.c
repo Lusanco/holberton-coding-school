@@ -15,11 +15,9 @@ int main(void)
 
 	while (toggle == 1)
 	{
-		if (isatty(STDIN_FILENO))
-			printf("($) ");
+		if (isatty(STDIN_FILENO)) printf("($) ");
 		bytes = getline(&str, &len, stdin);
-		if (bytes == -1)
-			toggle = 0;
+		if (bytes == -1) toggle = 0;
 		else
 		{
 			if (str[bytes - 1] == '\n')
@@ -27,15 +25,10 @@ int main(void)
 				str[bytes - 1] = '\0';
 				bytes--;
 			}
-			if (strcasecmp(str, "exit") == 0)
-				toggle = 0;
-			else
-				commander(str);
+			if (strcasecmp(str, "exit") == 0) toggle = 0;
+			else commander(str);
 		}
-		if (!isatty(STDIN_FILENO))
-			fflush(stdout);
-		/*else
-			printf("\n");*/
+		if (!isatty(STDIN_FILENO)) fflush(stdout);
 	}
 	free(str);
 	return (0);
