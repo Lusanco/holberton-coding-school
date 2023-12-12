@@ -10,6 +10,7 @@
 
 char **tokenizer(char *str);
 void commander(char *str);
+void freetok(char **tokens);
 
 /* Filename: header.h */
 #endif /* HEADER_H */

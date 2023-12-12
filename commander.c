@@ -16,26 +16,26 @@ void commander(char *str)
 	{
 		perror("access");
 		fprintf(stderr, "Command '%s' not found\n", args[0]);
-		free(args);
+		freetok(args);
 		return;
 	}
 	pid = fork();
 	if (pid == -1)
 	{
 		perror("fork");
-		free(args);
+		freetok(args);
 		exit(EXIT_FAILURE);
 	}
 	else if (pid == 0)
 	{
 		execve(args[0], args, NULL);
 		perror("execve");
-		free(args);
+		freetok(args);
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
 		waitpid(pid, &status, 0);
-		free(args);
+		freetok(args);
 	}
 }
