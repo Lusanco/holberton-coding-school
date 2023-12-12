@@ -30,8 +30,10 @@ void commander(char *str)
 	{
 		execve(args[0], args, environ);
 		perror("execve");
+		fprintf(stderr, "./hsh: %d: %s: not found\n", getpid(), args[0]);
 		freetok(args);
-		exit(EXIT_FAILURE);
+		/*exit(EXIT_FAILURE);*/
+		exit(127);
 	}
 	else
 	{
