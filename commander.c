@@ -29,7 +29,7 @@ void commander(char *str)
 	{
 		execve(args[0], args, environ);
 		perror("execve");
-		fprintf(stderr, "./hsh: %d: %s: not found\n", getpid(), args[0]);
+		fprintf(stderr, "./hsh: %d: %s: not found\n", pid, args[0]);
 		freetok(args);
 		exit(127);
 	}
