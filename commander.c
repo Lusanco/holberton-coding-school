@@ -9,8 +9,9 @@ void commander(char *str)
 	int status;
 
 	args = tokenizer(str);
-	if (args == NULL)
+	if (args == NULL || args[0] == NULL)
 	{
+		freetok(args);
 		fprintf(stderr, "Error tokenizing input\n");
 		return;
 	}
