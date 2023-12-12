@@ -12,7 +12,6 @@ void commander(char *str)
 	if (args == NULL || args[0] == NULL)
 	{
 		freetok(args);
-		fprintf(stderr, "Error tokenizing input\n");
 		return;
 	}
 	if (access(args[0], X_OK) == -1)

@@ -14,7 +14,7 @@ char **tokenizer(char *str)
 	char *token, *dup;
 	int i = 0;
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL || strspn(str, " \t\n") == strlen(str))
 	{
 		tokens = malloc(sizeof(char *));
 		if (!tokens)
