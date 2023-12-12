@@ -31,7 +31,7 @@ void commander(char *str)
 		perror("execve");
 		fprintf(stderr, "./hsh: %d: %s: not found\n", pid, args[0]);
 		freetok(args);
-		exit(127);
+		exit(2);
 	}
 	else
 	{
