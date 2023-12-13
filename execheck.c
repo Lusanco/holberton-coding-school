@@ -14,7 +14,7 @@ void execheck(char **args)
 	else if (pid == 0)
 	{
 		execve(args[0], args, environ);
-		perror("exeve");
+		perror("execve");
 		fprintf(stderr, "./hsh: %s: command not found\n", args[0]);
 		exit(2);
 	}

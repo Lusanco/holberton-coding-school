@@ -14,6 +14,7 @@ char **tokenizer(char *str);
 void commander(char *str);
 void freetok(char **tokens);
 void execheck(char **args);
+void pathinator(char **args);
 
 /* Filename: header.h */
 #endif /* HEADER_H */
