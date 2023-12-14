@@ -1,6 +1,6 @@
 #include "header.h"
 
-void commander(char *str)
+void commands(char *str)
 {
 	pid_t pid;
 	char **args = NULL;
@@ -31,7 +31,7 @@ void commander(char *str)
 		perror("execve");
 		fprintf(stderr, "./hsh: %d: %s: not found\n", pid, args[0]);
 		freetok(args);
-		exit(2);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
