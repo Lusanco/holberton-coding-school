@@ -12,7 +12,7 @@
 
 ## Description
 
-This is a simple recreation of a Unix command interpreter, capable of running basic commands. It mirrors a `sh` in a straightforward manner.
+Simple Shell (hsh) is a simple program that acts as an outer layer able to interact as your shell from your regular terminal. It can run your basic commands as if it was the sh, zsh etc.
 
 ## Files
 
@@ -90,7 +90,6 @@ $ echo "pwd" | ./hsh
 - [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)
 - [Thompson Shell](https://en.wikipedia.org/wiki/Thompson_shell)
 - [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
-
 
 ## Credits
 
