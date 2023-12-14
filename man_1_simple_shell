@@ -1,0 +1,81 @@
+SH(1)                          General Commands Manual                         SH(1)
+
+NAME
+       sh - simple shell
+
+SYNOPSIS
+       sh
+
+DESCRIPTION
+       sh is a simple shell program written in C. It provides a basic command-line
+       interface for users to execute commands.
+
+OPTIONS
+       No command-line options are supported.
+
+COMMANDS
+       sh supports the following built-in commands:
+
+       exit   Exit the shell.
+
+USAGE
+       To run the shell, simply execute the sh binary.
+
+       $ sh
+
+INTERACTIVE MODE
+       The shell operates in interactive mode when executed without any arguments.
+
+       In interactive mode, the shell displays a command prompt and waits for user input.
+
+       $ sh
+       $ $
+
+COMMAND EXECUTION
+       The shell can execute external commands and built-in commands.
+
+       External commands are executed by providing the command name and any
+       required arguments.
+
+       $ ls -l
+
+       Built-in commands are internal to the shell and include:
+
+       exit - Exit the shell.
+
+       $ exit
+
+PATH RESOLUTION
+       The shell searches for executable commands in the following directories:
+
+       /usr/local/bin/
+       /usr/bin/
+       /bin/
+       /usr/local/games/
+       /usr/games/
+
+       If a command is not found in these directories, an error is displayed.
+
+ERROR HANDLING
+       The shell provides basic error messages for command execution failures.
+
+AUTHOR
+       Your Name
+
+BUGS
+       Report any bugs to <your-email@example.com>
+
+SEE ALSO
+       execve(2), fork(2), wait(2), access(2), getline(3), strtok(3)
+
+COPYRIGHT
+       This program is free software; you can redistribute it and/or modify it
+       under the terms of the GNU General Public License as published by the
+       Free Software Foundation; either version 2 of the License, or (at your
+       option) any later version.
+
+       This program is distributed in the hope that it will be useful, but
+       WITHOUT ANY WARRANTY; without even the implied warranty of
+       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+       General Public License for more details.
+
