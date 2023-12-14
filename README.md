@@ -43,7 +43,7 @@ This is a simple recreation of a Unix command interpreter, capable of running ba
 
 ## Use 
 
-In the terminal:
+In the terminal interactive mode:
 
 ```bash
 ./hsh
@@ -51,18 +51,13 @@ In the terminal:
 ls
 ```
 
-To run commands in interactive mode (run commands from characters):
+In the terminal non-interactively (runs commands from outside our shell):
 
 ```bash
 echo "ls" | ./hsh
 echo "pwd" | ./hsh
 ```
 
-To run commands non-interactively (runs commands from outside our shell):
-
-```bash
-./hsh < script_file
-```
 
 ## Examples
 
