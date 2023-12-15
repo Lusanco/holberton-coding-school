@@ -10,14 +10,96 @@ hsh \- Holberton Simple Shell
 The \fBhsh\fP is a simple shell program written in C, providing a basic command-line interface for users to execute commands.
 
 .SH OPTIONS
-None
+.TP
+.B \-h, \-\-help
+Display this help message and exit.
+
+.TP
+.B \-v, \-\-version
+Display version information and exit.
 
 .SH COMMANDS
+.P
 hsh supports the following built-in commands:
 
-.IP "exit"
-Exit the shell.
+.IP "cat [options] file..."
+Display the contents of one or more files.
 
+.IP "chmod [options] mode file..."
+Change file permissions.
+
+.IP "chown [options] owner:group file..."
+Change file owner and group.
+
+.IP "clear"
+Removes all text and previous commands from the terminal, giving you a blank screen.
+
+.IP "cp [options] source destination"
+Copy files or directories from source to destination.
+
+.IP "echo [options] [string...]"
+Display a message or variable.
+
+.IP "exit [status]"
+Exit the shell with an optional status code.
+
+.IP "grep [options] pattern [file...]"
+Search for a pattern in one or more files.
+
+.IP "kill [options] pid"
+Send a signal to a process.
+
+.IP "less [options] file..."
+Views text files, allowing you to navigate through the file, search for specific content, and perform various operations.
+
+.IP "ls [options] [directory]"
+List files and directories in the specified directory. If no directory is provided, list the contents of the current directory.
+
+.IP "man"
+Display the manual pages for commands, utilities, and other system-related information.
+
+.IP "mkdir [options] directory..."
+Create directories with the specified names.
+
+.IP "mv [options] source destination"
+Move (rename) files or directories from source to destination.
+
+.IP "pipeline"
+Execute a pipeline of commands, connecting the output of one to the input of the next.
+
+.IP "ps [options]"
+Display information about active processes.
+
+.IP "rm [options] file..."
+Remove (delete) files or directories.
+
+.IP "touch [options] file..."
+Creates an empty file.
+
+.SH EXAMPLES
+.TP
+To run a command:
+.B simple_shell command arg1 arg2
+
+.TP
+To create a pipeline:
+.B simple_shell command1 | command2
+
+.TP
+To change the current working directory:
+.B simple_shell cd /path/to/directory
+
+.TP
+To list files in a directory:
+.B simple_shell ls /path/to/directory
+
+.TP
+To copy a file:
+.B simple_shell cp file.txt /path/to/destination
+
+.TP
+To remove a file:
+.B simple_shell rm file.txt
 .SH USAGE
 To run the shell, simply execute the \fBhsh\fP binary.
 
