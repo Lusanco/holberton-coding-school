@@ -1,34 +1,34 @@
 SH(1)                          General Commands Manual                         SH(1)
 
 NAME
-       sh - simple shell
+       hsh - holberton simple shell
 
 SYNOPSIS
-       sh
+       hsh
 
 DESCRIPTION
-       sh is a simple shell program written in C. It provides a basic command-line
+       hsh is a simple shell program written in C. It provides a basic command-line
        interface for users to execute commands.
 
 OPTIONS
        No command-line options are supported.
 
 COMMANDS
-       sh supports the following built-in commands:
+       hsh supports the following built-in commands:
 
        exit   Exit the shell.
 
 USAGE
-       To run the shell, simply execute the sh binary.
+       To run the shell, simply execute the hsh binary.
 
-       $ sh
+       $ hsh
 
 INTERACTIVE MODE
        The shell operates in interactive mode when executed without any arguments.
 
        In interactive mode, the shell displays a command prompt and waits for user input.
 
-       $ sh
+       $ hsh
        $ $
 
 COMMAND EXECUTION
@@ -60,10 +60,10 @@ ERROR HANDLING
        The shell provides basic error messages for command execution failures.
 
 AUTHOR
-       Your Name
+       Luis Santiago
 
 BUGS
-       Report any bugs to <your-email@example.com>
+       Report any bugs to <7379@example.com>
 
 SEE ALSO
        execve(2), fork(2), wait(2), access(2), getline(3), strtok(3)
