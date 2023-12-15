@@ -12,6 +12,6 @@ void no_command(char **args, char *str)
 {
 	fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
 	free_iterator(args);
-	if (str == NULL && str[0] != '\0')
+	if (str != NULL && str[0] != '\0')
 		free(str);
 }

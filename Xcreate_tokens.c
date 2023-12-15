@@ -25,7 +25,7 @@ char **create_tokens(char *str)
 	tokens = malloc((count + 1) * sizeof(char *));
 	if (tokens == NULL)
 	{
-		free(dup);
+		perror("malloc");
 		return (NULL);
 	}
 	token = strtok(str, " ");

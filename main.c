@@ -21,7 +21,7 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			printf("$ ");
 		bytes = getline(&str, &len, stdin);
-		if (bytes == -1)
+		if (bytes == -1 || (str[0] == '\0' || str[0] == '\n'))
 		{
 			if (isatty(STDIN_FILENO))
 				printf("\n");

@@ -17,6 +17,7 @@ void free_iterator(char **array)
 	for (i = 0; array[i] != NULL; i++)
 	{
 		free(array[i]);
+		array[i] = NULL;
 
 	}
 	free(array);

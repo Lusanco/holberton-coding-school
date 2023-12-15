@@ -13,7 +13,7 @@
 
 int some_space(char **args, char *str)
 {
-	if (args[0] == NULL)
+	if (args[0] == NULL || str[0] == '\0' || str[0] == '\n')
 	{
 		free(str);
 		free_iterator(args);
