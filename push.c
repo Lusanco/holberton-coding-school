@@ -11,14 +11,21 @@ void push(monty_stack_t **stack, unsigned int line_number)
 {
 	monty_stack_t *new_node;
 	int value;
-	char *args = strtok(NULL, " \t\n");
+	char *args = strtok(NULL, " \t\n$");
 
 	if (args == NULL || (!isdigit(*args) && *args != '-'))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	value = atoi(args);
+
+	if (sscanf(args, "%d", &value) != 1)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	/* printf("%d\n", value);debugging*/
+
 	new_node = malloc(sizeof(monty_stack_t));
 	if (!new_node)
 	{
