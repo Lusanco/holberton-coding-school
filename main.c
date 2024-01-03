@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		cleanup(file, line, stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -62,8 +63,6 @@ int main(int argc, char *argv[])
 			command(opcode, &stack, line_number, opcodes);
 		}
 	}
-	free(line);
-	fclose(file);
-	free_stack(&stack);
+	cleanup(file, line, stack);
 	return (EXIT_SUCCESS);
 }

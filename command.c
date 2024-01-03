@@ -26,5 +26,6 @@ void command(char *opcode, stack_t **stack,
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n",
 			line_number, opcode);
+	cleanup(NULL, NULL, *stack);
 	exit(EXIT_FAILURE);
 }
