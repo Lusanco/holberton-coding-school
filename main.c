@@ -44,7 +44,9 @@ int main(int argc, char *argv[])
 			continue;
 		opcode = strtok(line, " \t\n$");
 
-		if (opcode != NULL && strcmp(opcode, "#") != 0)
+		if (strcmp(opcode, "push") != 0 &&
+			strcmp(opcode, "pall") != 0 &&
+			strcmp(opcode, "pint") != 0)
 		{
 			if (strcmp(opcode, "push") != 0 && strcmp(opcode, "pall") != 0)
 			{
