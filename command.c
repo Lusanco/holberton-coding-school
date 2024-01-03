@@ -10,7 +10,7 @@
  * @opcodes: struct of instruction_t
  */
 
-void command(char *opcode, monty_stack_t **stack,
+void command(char *opcode, stack_t **stack,
 			 unsigned int line_number, instruction_t opcodes[])
 {
 	int i = 0;

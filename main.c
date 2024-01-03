@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	char *opcode = NULL;
 	FILE *file;
-	monty_stack_t *stack = NULL;
+	stack_t *stack = NULL;
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
