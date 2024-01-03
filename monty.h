@@ -51,6 +51,8 @@ typedef struct instruction_s
 
 void push(monty_stack_t **stack, unsigned int line_number);
 void pall(monty_stack_t **stack, unsigned int line_number);
-void command(char *opcode, monty_stack_t **stack, unsigned int line_number, instruction_t opcodes[]);
+void command(char *opcode, monty_stack_t **stack,
+			 unsigned int line_number, instruction_t opcodes[]);
+void free_stack(monty_stack_t **stack);
 
 #endif /* MONTY_H */
