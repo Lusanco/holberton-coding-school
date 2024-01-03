@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}};
 
 	if (argc != 2)
@@ -48,7 +49,8 @@ int main(int argc, char *argv[])
 		{
 			if (strcmp(opcode, "push") != 0 &&
 				strcmp(opcode, "pall") != 0 &&
-				strcmp(opcode, "pint") != 0)
+				strcmp(opcode, "pint") != 0 &&
+				strcmp(opcode, "pop") != 0)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 				exit(EXIT_FAILURE);
