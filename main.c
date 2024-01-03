@@ -11,7 +11,7 @@
 
 int main(int argc, char *argv[])
 {
-	char *opcode;
+	char *opcode = NULL;
 	FILE *file;
 	monty_stack_t *stack = NULL;
 	char *line = NULL;
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty <file>\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -39,11 +39,22 @@ int main(int argc, char *argv[])
 	while ((read = getline(&line, &len, file)) != -1)
 	{
 		line_number++;
+		if (line[0] == '\n' || (line[0] == ' ' && line[1] == '\n'))
+			continue;
 		opcode = strtok(line, " \t\n$");
+
 		if (opcode != NULL && strcmp(opcode, "#") != 0)
+		{
+			if (strcmp(opcode, "push") != 0 && strcmp(opcode, "pall") != 0)
+			{
+				fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+				exit(EXIT_FAILURE);
+			}
 			command(opcode, &stack, line_number, opcodes);
+		}
 	}
 	free(line);
 	fclose(file);
+	free_stack(&stack);
 	return (EXIT_SUCCESS);
 }

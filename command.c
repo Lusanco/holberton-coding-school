@@ -24,7 +24,7 @@ void command(char *opcode, monty_stack_t **stack,
 		}
 		i++;
 	}
-	fprintf(stderr, "L%u<line_number>: unknown instruction %s\n",
+	fprintf(stderr, "L%u: unknown instruction %s\n",
 			line_number, opcode);
 	exit(EXIT_FAILURE);
 }
