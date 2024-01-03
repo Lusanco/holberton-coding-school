@@ -2,15 +2,14 @@
 
 ### Table of contents
 
-- [*C - Stacks, Queues - LIFO, FIFO*](#c---stacks-queues---lifo-fifo)
-    - [Table of contents](#table-of-contents)
-  - [Description](#description)
-  - [Files](#files)
-  - [Features](#features)
-  - [Usage](#usage)
-  - [Examples](#examples)
-  - [Resources](#resources)
-  - [Credits](#credits)
+- [Table of contents](#table-of-contents)
+- [Description](#description)
+- [Files](#files)
+- [Features](#features)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Resources](#resources)
+- [Credits](#credits)
 
 ## Description
 
