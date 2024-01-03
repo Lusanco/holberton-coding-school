@@ -44,11 +44,11 @@ int main(int argc, char *argv[])
 			continue;
 		opcode = strtok(line, " \t\n$");
 
-		if (strcmp(opcode, "push") != 0 &&
-			strcmp(opcode, "pall") != 0 &&
-			strcmp(opcode, "pint") != 0)
+		if (opcode != NULL && strcmp(opcode, "#") != 0)
 		{
-			if (strcmp(opcode, "push") != 0 && strcmp(opcode, "pall") != 0)
+			if (strcmp(opcode, "push") != 0 &&
+				strcmp(opcode, "pall") != 0 &&
+				strcmp(opcode, "pint") != 0)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 				exit(EXIT_FAILURE);
