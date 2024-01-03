@@ -7,9 +7,9 @@
  * @line_number: line_number
  */
 
-void push(monty_stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
-	monty_stack_t *new_node;
+	stack_t *new_node;
 	int value;
 	char *args = strtok(NULL, " \t\n$");
 
@@ -25,7 +25,7 @@ void push(monty_stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	new_node = malloc(sizeof(monty_stack_t));
+	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");

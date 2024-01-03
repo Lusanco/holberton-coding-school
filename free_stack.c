@@ -6,9 +6,9 @@
  * @stack: Pointer to the top of the stack
  */
 
-void free_stack(monty_stack_t **stack)
+void free_stack(stack_t **stack)
 {
-	monty_stack_t *temp;
+	stack_t *temp;
 
 	while (*stack != NULL)
 	{

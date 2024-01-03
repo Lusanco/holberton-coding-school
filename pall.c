@@ -8,9 +8,9 @@
  * @line_number: line_number
  */
 
-void pall(monty_stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	monty_stack_t *current = *stack;
+	stack_t *current = *stack;
 	(void)line_number;
 
 	while (current != NULL)
