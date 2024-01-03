@@ -20,8 +20,13 @@ void push(monty_stack_t **stack, unsigned int line_number)
 	}
 
 	value = atoi(args);
+	if (value == 0 && *args != '0')
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	new_node = malloc(sizeof(monty_stack_t));
-	if (!new_node)
+	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
