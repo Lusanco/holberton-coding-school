@@ -20,10 +20,8 @@ void sub(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n -= (*stack)->n;
 	temp = *stack;
+	(*stack)->next->n -= (*stack)->n;
 	*stack = (*stack)->next;
-	if (*stack != NULL)
-		(*stack)->prev = NULL;
 	free(temp);
 }
