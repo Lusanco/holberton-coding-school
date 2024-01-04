@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 		{"swap", swap},
 		{"sub", sub},
 		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}};
 
 	if (argc != 2)
@@ -57,7 +58,8 @@ int main(int argc, char *argv[])
 				strcmp(opcode, "pop") != 0 &&
 				strcmp(opcode, "swap") != 0 &&
 				strcmp(opcode, "add") != 0 &&
-				strcmp(opcode, "sub") != 0)
+				strcmp(opcode, "sub") != 0 &&
+				strcmp(opcode, "nop") != 0)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 				exit(EXIT_FAILURE);

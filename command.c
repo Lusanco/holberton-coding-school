@@ -24,6 +24,20 @@ void command(char *opcode, stack_t **stack,
 		}
 		i++;
 	}
+
+	if (strcmp(opcode, "nop") == 0)
+	{
+		printf("Debug: Executing nop\n");
+		nop(stack, line_number);
+		return;
+	}
+	fprintf(stderr, "Debug: Opcode not recognized: %s\n", opcode);
+
+	for (i = 0; opcodes[i].opcode != NULL; i++)
+	{
+		fprintf(stderr, "Debug: Available opcode: %s\n", opcodes[i].opcode);
+	}
+
 	fprintf(stderr, "L%u: unknown instruction %s\n",
 			line_number, opcode);
 	cleanup(NULL, NULL, *stack);
