@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- * pop - Removes top of stack
+ * pop - Function that removes the top element of the stack.
  *
- * @stack: Pointer to top of stack
- * @line_number: Line numer in the monty file
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the monty file.
  */
 
 void pop(stack_t **stack, unsigned int line_number)

@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- * pint - Prints value on top of stack
+ * pint - Function that prints value on top of stack.
  *
- * @stack: pointer top stack
- * @line_number: Line number in the Monty file
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the monty file.
  */
 
 void pint(stack_t **stack, unsigned int line_number)

@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * cleanup - cleanup func frees memory before exit
+ * cleanup - Function that frees memory before exit.
  *
- * @file: file to be closed
- * @line: line to be freed
- * @stack: stack to be freed w/ free_stack
+ * @file: file to be closed.
+ * @line: line to be freed.
+ * @stack: stack to be freed with free_stack.
  */
 
 void cleanup(FILE *file, char *line, stack_t *stack)

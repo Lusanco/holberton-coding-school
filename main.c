@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * main - main
+ * main - Main function.
  *
- * @argc: argc
- * @argv: argv
+ * @argc: Arguments count.
+ * @argv: Arguments values.
  *
- * Return: Return
+ * Return: SUCCESS, ERROR_FAILURE otherwise.
  */
 
 int main(int argc, char *argv[])
