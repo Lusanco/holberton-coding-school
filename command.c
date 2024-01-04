@@ -4,10 +4,10 @@
  * command - Function that finds and
  * executes the corresponding function.
  *
- * @opcode: function commands
- * @stack: struct of stack_t
- * @line_number: number of line
- * @opcodes: struct of instruction_t
+ * @opcode: Function commands
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the monty file.
+ * @opcodes: Struct of instruction_t.
  */
 
 void command(char *opcode, stack_t **stack,
@@ -27,15 +27,8 @@ void command(char *opcode, stack_t **stack,
 
 	if (strcmp(opcode, "nop") == 0)
 	{
-		printf("Debug: Executing nop\n");
 		nop(stack, line_number);
 		return;
-	}
-	fprintf(stderr, "Debug: Opcode not recognized: %s\n", opcode);
-
-	for (i = 0; opcodes[i].opcode != NULL; i++)
-	{
-		fprintf(stderr, "Debug: Available opcode: %s\n", opcodes[i].opcode);
 	}
 
 	fprintf(stderr, "L%u: unknown instruction %s\n",
