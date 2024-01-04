@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- * swap - Swaps the top 2 elements of stack
+ * swap - Function that swaps the top 2 elements of stack.
  *
- * @stack: Pointer to the top of the stack
- * @line_number: Line number in monty file
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the monty file.
  */
 
 void swap(stack_t **stack, unsigned int line_number)
