@@ -13,7 +13,19 @@ void push(stack_t **stack, unsigned int line_number)
 	int value;
 	char *args = strtok(NULL, " \t\n$");
 
-	if (args == NULL || (!isdigit(*args) && *args != '-'))
+	if (args == NULL || (!isdigit(*args) && *args != '-' && *args != '+'))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		cleanup(NULL, NULL, *stack);
+		exit(EXIT_FAILURE);
+	}
+
+	if (*args == '-' || *args == '+')
+	{
+		args++;
+	}
+
+	if (!isdigit(*args))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		cleanup(NULL, NULL, *stack);
