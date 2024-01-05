@@ -28,6 +28,8 @@ int main(int argc, char *argv[])
 		{"add", add},
 		{"nop", nop},
 		{"div", div_func},
+		{"mul", mul_func},
+		{"mod", mod_func},
 		{NULL, NULL}};
 
 	if (argc != 2)
@@ -61,6 +63,8 @@ int main(int argc, char *argv[])
 				strcmp(opcode, "add") != 0 &&
 				strcmp(opcode, "sub") != 0 &&
 				strcmp(opcode, "div") != 0 &&
+				strcmp(opcode, "mul") != 0 &&
+				strcmp(opcode, "mod") != 0 &&
 				strcmp(opcode, "nop") != 0)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
