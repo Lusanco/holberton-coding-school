@@ -62,5 +62,6 @@ void sub(stack_t **stack, unsigned int line_number);
 void cleanup(FILE *file, char *line, stack_t *stack);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+void div_func(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
