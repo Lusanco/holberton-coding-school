@@ -49,8 +49,12 @@ int main(int argc, char *argv[])
 	while ((read = getline(&line, &len, file)) != -1)
 	{
 		line_number++;
+		if (line[0] == '#' || (line[0] == ' ' && line[1] == '#'))
+			continue;
+
 		if (line[0] == '\n' || (line[0] == ' ' && line[1] == '\n'))
 			continue;
+
 		opcode = strtok(line, " \t\n$");
 
 		if (opcode != NULL && strcmp(opcode, "#") != 0)
