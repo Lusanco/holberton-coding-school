@@ -12,7 +12,7 @@ int binary_tree_is_leaf(const binary_tree_t *node)
 {
 	int pass_flag;
 
-	if (node == NULL || node->left != NULL || node->right != NULL)
+	if (node == NULL)
 		pass_flag = 0;
 	if (node->left == NULL && node->right == NULL)
 		pass_flag = 1;
