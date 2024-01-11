@@ -5,6 +5,7 @@
 - [Table of contents](#table-of-contents)
 - [Description](#description)
 - [Files](#files)
+- [Usage](#usage)
 - [Resources](#resources)
 - [Credits](#credits)
 
@@ -37,6 +38,15 @@
 
 
 *`main.c` files not included.*
+
+## Usage
+
+To execute the program, use the following command in the command prompt:
+```c
+prodjohnper@penguin:~/holbertonschool-monty$ ---> ./monty example.m <---
+
+```
+
 ## Resources
 
 - *[Difference between Stack and Queue Data Structures](https://www.geeksforgeeks.org/difference-between-stack-and-queue-data-structures/)*
