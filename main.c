@@ -8,7 +8,7 @@
  * @line_number: Line number in the monty file.
  */
 
-void process_line(char *line, stack_t **stack, unsigned int line_number)
+void process_line(char *line, stack_t **stack, unsigned int line_number, instruction_t opcodes[])
 {
 	char *opcode = strtok(line, " \t\n$");
 
