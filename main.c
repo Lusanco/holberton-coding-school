@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
 		cleanup(file, NULL, stack);
 		exit(EXIT_FAILURE);
 	}
-	process_file(file, &stack);
+	process_file(file, &stack, opcodes);
 	cleanup(file, NULL, stack);
 	return (EXIT_SUCCESS);
 }
