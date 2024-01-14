@@ -10,9 +10,9 @@
 
 void cleanup(FILE *file, char *line, stack_t *stack)
 {
-    if (file != NULL)
-        fclose(file);
-    if (line != NULL)
-        free(line);
-    free_stack(&stack);
+	if (file != NULL)
+		fclose(file);
+	if (line != NULL)
+		free(line);
+	free_stack(&stack);
 }
