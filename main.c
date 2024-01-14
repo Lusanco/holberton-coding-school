@@ -54,7 +54,7 @@ void process_file(FILE *file, stack_t **stack, instruction_t opcodes[])
 			continue;
 		if (line[0] == '\n' || (line[0] == ' ' && line[1] == '\n'))
 		continue;
-		process_line(line, stack, line_number);
+		process_line(line, stack, line_number, opcodes);
 	}
 }
 
