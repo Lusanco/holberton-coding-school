@@ -29,7 +29,7 @@ void cant_open_ERR(FILE *file, char *argv[], char *line, stack_t *stack)
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		cleanup(file, line, stack);
+		cleanup(NULL, line, stack);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 		{"mul", mul_func}, {"mod", mod_func}, {NULL, NULL}};
 	usage_monty_ERR(argc);
 	file = fopen(argv[1], "r");
-	cant_open_ERR(file, *argv, line, stack);
+	cant_open_ERR(file, argv, line, stack);
 	while ((read = getline(&line, &len, file)) != -1)
 	{
 		line_number++;
