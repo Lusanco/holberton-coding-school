@@ -40,7 +40,7 @@ void process_line(char *line, stack_t **stack, unsigned int line_number, instruc
  * @stack: Pointer to the top of the stack.
  */
 
-void process_file(FILE *file, stack_t **stack)
+void process_file(FILE *file, stack_t **stack, instruction_t opcodes[])
 {
 	char *line = NULL;
 	size_t len = 0;
