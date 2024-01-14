@@ -19,6 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
 		cleanup(NULL, NULL, *stack);
 		exit(EXIT_FAILURE);
 	}
+
 	for (i = 0; args[i] != '\0'; i++)
 	{
 		if (!isdigit(args[i]) && !(i == 0 && (args[i] == '-' || args[i] == '+')))
@@ -28,6 +29,7 @@ void push(stack_t **stack, unsigned int line_number)
 			exit(EXIT_FAILURE);
 		}
 	}
+
 	value = atoi(args);
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
@@ -36,10 +38,12 @@ void push(stack_t **stack, unsigned int line_number)
 		cleanup(NULL, NULL, *stack);
 		exit(EXIT_FAILURE);
 	}
+
 	new_node->n = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
+
 	if (*stack != NULL)
-	(*stack)->prev = new_node;
+		(*stack)->prev = new_node;
 *stack = new_node;
 }
