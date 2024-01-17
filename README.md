@@ -41,7 +41,7 @@ For this project you are given the following *print_array* and *print_list* func
 
 For this project we are also given the following structure for doubly linked list:
 
-```
+```c
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -49,6 +49,7 @@ For this project we are also given the following structure for doubly linked lis
  * @prev: Pointer to the previous element of the list
  * @next: Pointer to the next element of the list
  */
+
 typedef struct listint_s
 {
     const int n;
