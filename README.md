@@ -20,6 +20,9 @@ This is our submission project for *Holberton Coding School's* module of *C - Bi
 - `1-binary_tree_insert_left.c` - Function that inserts a node as the left-child of another node.
 - `2-binary_tree_insert_right.c` - Function that inserts a node as the right-child of another node.
 - `3-binary_tree_delete.c` - Function that deletes an entire binary tree.
+<details>
+	<summary>...</summary>
+	
 - `4-binary_tree_is_leaf.c` - Function that checks if a node is a leaf.
 - `5-binary_tree_is_root.c` - Function that checks if a given node is a root.
 - `6-binary_tree_preorder.c` - Function that goes through a binary tree using pre-order traversal.
@@ -36,13 +39,12 @@ This is our submission project for *Holberton Coding School's* module of *C - Bi
 - `17-binary_tree_sibling.c` - Function that finds the sibling of a node.
 - `18-binary_tree_uncle.c` -Function that finds the uncle of a node.
 
+</details>
+
 ###
 
-*`Main.c` files <ins>not</ins> included.*
-
-##
-
-To match the examples in the tasks, you are given this function:
+<details>
+<summary>To match the examples in the tasks, you are given this function:</summary>
 
 ```c
 #include <stdio.h>
@@ -145,9 +147,14 @@ void binary_tree_print(const binary_tree_t *tree)
 	free(s);
 }
 ```
+</details>
+
+*`Main.c` files <ins>not</ins> included.*
+
+##
 
 ## Structure
-
+	
 ```c
 /**
  * struct binary_tree_s - Binary tree node
@@ -167,6 +174,8 @@ struct binary_tree_s
 
 typedef struct binary_tree_s binary_tree_t;
 ```
+
+##
 
 ## Resources
 
