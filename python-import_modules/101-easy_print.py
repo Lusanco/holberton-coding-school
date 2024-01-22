@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-exec("".join(["print('#pythoniscool')\n"]))
+exec("print('#pythoniscool')\n")
