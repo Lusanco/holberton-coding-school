@@ -21,8 +21,8 @@ You are not allowed to use len()
 
 guillaume@ubuntu:~/$ cat 2-main.py
 #!/usr/bin/python3
-safe_print_list_integers = \
-    __import__('2-safe_print_list_integers').safe_print_list_integers
+safe_print_list_integers =
+__import__('2-safe_print_list_integers').safe_print_list_integers
 
 my_list = [1, 2, 3, 4, 5]
 
@@ -56,7 +56,7 @@ def safe_print_list_integers(my_list=[], x=0):
     count = 0
     try:
         for i in range(x):
-            if type(my_list[i]) == int:
+            if type(my_list[i]) is int:
                 print("{:d}".format(my_list[i]), end="")
                 count += 1
     except IndexError:
