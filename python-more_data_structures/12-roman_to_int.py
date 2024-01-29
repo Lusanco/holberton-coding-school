@@ -6,7 +6,8 @@ Technical interview preparation:
 
 You are not allowed to google anything
 Whiteboard first
-Create a function def roman_to_int(roman_string): that converts a Roman numeral to an integer.
+Create a function def roman_to_int(roman_string):
+that converts a Roman numeral to an integer.
 
 You can assume the number will be between 1 to 3999.
 def roman_to_int(roman_string) must return an integer
@@ -39,5 +40,22 @@ VII = 7
 IX = 9
 LXXXVII = 87
 DCCVII = 707
-guillaume@ubuntu:~/$ 
+guillaume@ubuntu:~/$
 """
+
+
+def roman_to_int(roman_string):
+    copy = roman_string
+    roman = {"I": 1, "V": 5, "X": 10, "L": 50,
+             "C": 100, "D": 500, "M": 1000}
+    res = 0
+    if not isinstance(copy, str) or copy is None:
+        return 0
+
+    for i in range(len(copy)):
+        if i > 0 and roman[copy[i]] > roman[copy[i - 1]]:
+            res += roman[copy[i]] - 2 * roman[copy[i - 1]]
+        else:
+            res += roman[copy[i]]
+
+    return res
