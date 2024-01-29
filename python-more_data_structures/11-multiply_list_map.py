@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""11. Multiply by using map
+"""
+11. Multiply by using map
 mandatory
-Write a function that returns a list with all values multiplied by a number without using any loops.
+Write a function that returns a list with all values
+multiplied by a number without using any loops.
 
 Prototype: def multiply_list_map(my_list=[], number=0):
 Returns a new list:
@@ -14,7 +16,8 @@ Your file should be max 3 lines
 
 guillaume@ubuntu:~/$ cat 11-main.py
 #!/usr/bin/python3
-multiply_list_map = __import__('11-multiply_list_map').multiply_list_map
+multiply_list_map =
+__import__('11-multiply_list_map').multiply_list_map
 
 my_list = [1, 2, 3, 4, 6]
 new_list = multiply_list_map(my_list, 4)
@@ -24,5 +27,9 @@ print(my_list)
 guillaume@ubuntu:~/$ ./11-main.py
 [4, 8, 12, 16, 24]
 [1, 2, 3, 4, 6]
-guillaume@ubuntu:~/$ 
+guillaume@ubuntu:~/$
 """
+
+
+def multiply_list_map(my_list=[], number=0):
+    return list(map(lambda x: x * number, my_list))
