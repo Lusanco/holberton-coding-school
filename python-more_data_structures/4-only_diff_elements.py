@@ -2,7 +2,8 @@
 """
 4. Only differents
 mandatory
-Write a function that returns a set of all elements present in only one set.
+Write a function that returns a set of all
+elements present in only one set.
 
 Prototype: def only_diff_elements(set_1, set_2):
 You are not allowed to import any module
@@ -18,5 +19,10 @@ print(sorted(list(od_set)))
 
 guillaume@ubuntu:~/$ ./4-main.py
 ['Bash', 'Javascript', 'Perl', 'Python', 'Ruby']
-guillaume@ubuntu:~/$ 
+guillaume@ubuntu:~/$
 """
+
+
+def only_diff_elements(set_1, set_2):
+    new_set = set_1.symmetric_difference(set_2)
+    return new_set
