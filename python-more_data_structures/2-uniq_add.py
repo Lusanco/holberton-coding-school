@@ -2,7 +2,9 @@
 """
 2. Unique addition
 mandatory
-Write a function that adds all unique integers in a list (only once for each integer).
+Write a function that adds all unique
+integers in a list (only once for each
+integer).
 
 Prototype: def uniq_add(my_list=[]):
 You are not allowed to import any module
@@ -17,5 +19,13 @@ print("Result: {:d}".format(result))
 
 guillaume@ubuntu:~/$ ./2-main.py
 Result: 15
-guillaume@ubuntu:~/$ 
+guillaume@ubuntu:~/$
 """
+
+
+def uniq_add(my_list=[]):
+    uniq_set = set()
+    for _ in my_list:
+        uniq_set.add(_)
+    add = sum(uniq_set)
+    return add
