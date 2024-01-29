@@ -25,3 +25,8 @@ guillaume@ubuntu:~/$ ./1-main.py
 [1, 2, 3, 4, 5, 4, 2, 1, 1, 4, 89]
 guillaume@ubuntu:~/$ 
 """
+
+
+def search_replace(my_list, search, replace):
+    replaced = [replace if _ == search else _ for _ in my_list]
+    return replaced
