@@ -2,7 +2,8 @@
 """
 5. Number of keys
 mandatory
-Write a function that returns the number of keys in a dictionary.
+Write a function that returns the
+number of keys in a dictionary.
 
 Prototype: def number_keys(a_dictionary):
 You are not allowed to import any module
@@ -17,5 +18,9 @@ print("Number of keys: {:d}".format(nb_keys))
 
 guillaume@ubuntu:~/$ ./5-main.py
 Number of keys: 3
-guillaume@ubuntu:~/$ 
+guillaume@ubuntu:~/$
 """
+
+
+def number_keys(a_dictionary):
+    return len(a_dictionary)
