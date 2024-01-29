@@ -18,5 +18,9 @@ except TypeError as te:
 
 guillaume@ubuntu:~/$ ./5-main.py
 Exception raised
-guillaume@ubuntu:~/$ 
+guillaume@ubuntu:~/$
 """
+
+
+def raise_exception():
+    raise TypeError("This is a type exception")
