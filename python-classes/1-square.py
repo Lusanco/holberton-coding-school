@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 1. Square with size
 mandatory
@@ -11,7 +12,12 @@ Why?
 
 Why size is private attribute?
 
-The size of a square is crucial for a square, many things depend of it (area computation, etc.), so you, as class builder, must control the type and value of this attribute. One way to have the control is to keep it privately. You will see in next tasks how to get, update and validate the size value.
+The size of a square is crucial for a square,
+many things depend of it (area computation, etc.),
+so you, as class builder, must control the type
+and value of this attribute. One way to have the
+control is to keep it privately. You will see in
+next tasks how to get, update and validate the size value.
 
 guillaume@ubuntu:~/$ cat 1-main.py
 #!/usr/bin/python3
@@ -38,3 +44,9 @@ guillaume@ubuntu:~/$ ./1-main.py
 'Square' object has no attribute '__size'
 guillaume@ubuntu:~/$
 """
+
+
+class Square:
+    """Defines Square class w/ private size"""
+    def __init__(self, size):
+        self.__size = size
