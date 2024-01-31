@@ -19,3 +19,7 @@ guillaume@ubuntu:~/$ ./0-main.py
 {}
 guillaume@ubuntu:~/$
 """
+
+class Square:
+    """Defines a Square"""
+    pass
