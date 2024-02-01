@@ -11,8 +11,11 @@ def add_integer(a, b=98):
     - a (int or float): The first integer.
     - b (int or float): The second integer. Default is 98."""
 
-    if a == None or b == None:
-        raise TypeError("unsupported operand type(s) for +: 'NoneType' and 'int'")
+    if a is None or b is None:
+        raise TypeError(
+            "unsupported operand type(s) \
+                        for +: 'NoneType' and 'int'"
+        )
     if type(a) is not int and type(a) is not float:
         raise TypeError("a must be an integer")
     if type(b) is not int and type(b) is not float:
