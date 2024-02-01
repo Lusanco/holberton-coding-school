@@ -1,8 +1,9 @@
 The "add_integer" doctest
-======================
+========================
+
 Tests the add_integer function from 0-add_integer
 for any edge cases that may break the functionality
-of the imported function
+of the imported function.
 
 >>> add_integer = __import__('0-add_integer').add_integer
 >>> add_integer(1, 2)
@@ -15,13 +16,13 @@ of the imported function
 0
 >>> add_integer(4, "School")
 Traceback (most recent call last):
-...
-TypeError: a must be an integer or b must be an add_integer
+    ...
+TypeError: a must be an integer or b must be an integer
 >>> add_integer("School", 4)
 Traceback (most recent call last):
-...
+    ...
 TypeError: a must be an integer
 >>> add_integer()
 Traceback (most recent call last):
-...
+    ...
 TypeError: b must be an integer
