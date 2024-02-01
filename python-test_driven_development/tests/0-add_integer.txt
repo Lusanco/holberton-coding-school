@@ -25,9 +25,9 @@ b must be an integer
 ...     print(e)
 a must be an integer
 >>> try:
-...     add_integer()
+...     add_integer(None)
 ... except TypeError as e:
 ...     print(e)
-add_integer() missing 1 required positional argument: 'a'
+unsupported operand type(s) for +: 'NoneType' and 'int'
 >>> add_integer(2)
 100
