@@ -1,4 +1,4 @@
-The "add_integer" doctest
+The add_integer doctest
 =========================
 Test cases for add_integer function from 0-add_integer
 
