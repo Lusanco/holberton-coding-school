@@ -11,6 +11,10 @@ Test cases for add_integer function from 0-add_integer
 98
 >>> add_integer(0, 0)
 0
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
 >>> add_integer(4, "School")
 Traceback (most recent call last):
 ...
