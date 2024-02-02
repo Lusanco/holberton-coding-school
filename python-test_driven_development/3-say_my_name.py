@@ -19,6 +19,6 @@ def say_my_name(first_name, last_name=""):
     if not isinstance(last_name, str):
         raise TypeError(last)
     if last_name is "":
-        print(f"My name is {first_name}".strip())
+        print(f"My name is {first_name}")
     else:
         print(f"My name is {first_name} {last_name}")
