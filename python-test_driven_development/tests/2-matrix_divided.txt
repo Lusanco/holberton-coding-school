@@ -7,7 +7,7 @@ of the imported function.
 
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 >>> try:
-...     matrix_divided([[1, 2 ,3], ["a", "b", "c"]], 3)
+...     matrix_divided([[1, 2 ,3], "c"], 3)
 ... except TypeError as e:
 ...     print(e)
 matrix must be a matrix (list of lists) of integers/floats
