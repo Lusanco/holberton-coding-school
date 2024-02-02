@@ -2,7 +2,7 @@
 """
 Module Name: 0-add_integer
 Description: Adds two integers
-Author: Lusanco, Date: Feb 01 2024
+Authors: Lusanco, Ltoro9, Antoniofdjs Date: Feb 01 2024
 """
 
 
