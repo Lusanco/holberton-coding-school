@@ -11,11 +11,13 @@ def say_my_name(first_name, last_name=""):
     - first_name (str): The name string
     - last_name (str): The last name, default is \" \" """
 
+    first_name.strip()
+    last_name.strip()
     first = "first_name must be a string"
     last = "last_name must be a string"
 
     if not isinstance(first_name, str):
         raise TypeError(first)
     if not isinstance(last_name, str):
-        raise TypeError("last_name must be a string")
+        raise TypeError(last)
     print(f"My name is {first_name} {last_name}")
