@@ -14,9 +14,6 @@ def matrix_divided(matrix, div):
     mtx = "matrix must be a matrix (list of lists) of integers/floats"
     siz = "Each row of the matrix must have the same size"
 
-    if len(matrix[0]) != len(matrix[1]):
-        raise TypeError(siz)
-
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
