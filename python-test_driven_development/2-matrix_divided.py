@@ -17,31 +17,24 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    if type(div) is not int and type(div) is not float:
+    if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
 
     temp = len(matrix[0])
     for row in matrix:
-        if type(row) is not list:
+        if not isinstance(row, list):
             raise TypeError(mtx)
         if temp != len(row):
             raise TypeError(siz)
         temp = len(row)
 
-    new_list = [row[:] for row in matrix]
+    new_matrix = [row[:] for row in matrix]
 
     for row in range(len(matrix)):
         for column in range(len(matrix[row])):
-            if (
-                type(matrix[row][column]) is not int
-                and type(matrix[row][column]) is not float
-            ):
+            if not isinstance(matrix[row][column], (int, float)):
                 raise TypeError(mtx)
-            result = (
-                "{:.1f}".format(matrix[row][column] / div)
-                if matrix[row][column] % div == 0
-                else "{:.2f}".format(matrix[row][column] / div)
-            )
-            new_list[row][column] = float(result)
+            result = round(matrix[row][column] / div, 2)
+            new_matrix[row][column] = result
 
-    return new_list
+    return new_matrix
