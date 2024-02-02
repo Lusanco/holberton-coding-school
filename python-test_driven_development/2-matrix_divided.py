@@ -17,11 +17,19 @@ def matrix_divided(matrix, div):
     if len(matrix[0]) != len(matrix[1]):
         raise TypeError(siz)
 
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
+
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
 
-    if div == 0:
-        raise ZeroDivisionError("division by zero")
+    temp = len(matrix[0])
+    for row in matrix:
+        if not isinstance(row, list):
+            raise TypeError(mtx)
+        if temp != len(row):
+            raise TypeError(siz)
+        temp = len(row)
 
     new_matrix = [row[:] for row in matrix]
 
