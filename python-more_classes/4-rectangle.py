@@ -1,72 +1,9 @@
 #!/usr/bin/python3
 """
 Module Name: 3-rectangle
-Description: Defines a Rectangle, returns area, perimeter and rectangle #
+Description: Defines a Rectangle, returns 
+area, perimeter and rectangle #
 Authors: Lusanco
-
-repr() should return a string representation of the rectangle to be able to recreate a new instance by using eval() (see example below)
-You are not allowed to import any module
-
-guillaume@ubuntu:~/$ cat 4-main.py
-#!/usr/bin/python3
-Rectangle = __import__('4-rectangle').Rectangle
-
-my_rectangle = Rectangle(2, 4)
-print(str(my_rectangle))
-print("--")
-print(my_rectangle)
-print("--")
-print(repr(my_rectangle))
-print("--")
-print(hex(id(my_rectangle)))
-print("--")
-
-# create new instance based on representation
-new_rectangle = eval(repr(my_rectangle))
-print(str(new_rectangle))
-print("--")
-print(new_rectangle)
-print("--")
-print(repr(new_rectangle))
-print("--")
-print(hex(id(new_rectangle)))
-print("--")
-
-print(new_rectangle is my_rectangle)
-print(type(new_rectangle) is type(my_rectangle))
-
-guillaume@ubuntu:~/$ ./4-main.py
-##
-##
-##
-##
---
-##
-##
-##
-##
---
-Rectangle(2, 4)
---
-0x7f09ebf7cc88
---
-##
-##
-##
-##
---
-##
-##
-##
-##
---
-Rectangle(2, 4)
---
-0x7f09ebf7ccc0
---
-False
-True
-guillaume@ubuntu:~/$
 """
 
 
