@@ -4,29 +4,6 @@ Module Name: 5-rectangle
 Description: Defines a Rectangle, returns
 area, perimeter and rectangle #
 Authors: Lusanco
-
-Print the message Bye rectangle... (... being 3 dots not ellipsis) when an instance of Rectangle is deleted
-You are not allowed to import any module
-
-guillaume@ubuntu:~/$ cat 5-main.py
-#!/usr/bin/python3
-Rectangle = __import__('5-rectangle').Rectangle
-
-my_rectangle = Rectangle(2, 4)
-print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
-
-del my_rectangle
-
-try:
-    print(my_rectangle)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
-
-guillaume@ubuntu:~/$ ./5-main.py
-Area: 8 - Perimeter: 12
-Bye rectangle...
-[NameError] name 'my_rectangle' is not defined
-guillaume@ubuntu:~/$
 """
 
 
