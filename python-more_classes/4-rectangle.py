@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module Name: 3-rectangle
+Module Name: 4-rectangle
 Description: Defines a Rectangle, returns
 area, perimeter and rectangle #
 Authors: Lusanco
