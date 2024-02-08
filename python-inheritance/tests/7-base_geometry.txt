@@ -11,6 +11,12 @@ Test integer_validator method
 >>> bg.integer_validator("width", 89)
 
 >>> try:
+...     bg.integer_validator()
+... except TypeError as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> try:
 ...     bg.integer_validator("name", "John")
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
