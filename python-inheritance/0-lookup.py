@@ -9,4 +9,5 @@ Authors: Lusanco
 
 
 def lookup(obj):
+    """Show attributes of object"""
     return dir(obj)
