@@ -8,7 +8,9 @@ Authors: Lusanco
 
 
 class BaseGeometry:
-    """Public instance method that raises an Exception && Public instance method that validates value"""
+    """Public instance method that raises
+    an Exception && Public instance method
+    that validates value"""
 
     def area(self):
         raise Exception("area() is not implemented")
@@ -16,5 +18,5 @@ class BaseGeometry:
     def integer_validator(self, name, value):
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
-        elif value <= 0:
+        if value <= 0:
             raise TypeError("{} must be greater than 0".format(name))
