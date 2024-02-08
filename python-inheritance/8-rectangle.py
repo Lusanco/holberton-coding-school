@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-BaseGeometry = __import__("7-base_geometry").BaseGeometry
 """
 Module Name: 8-base_geometry
 Description: class BaseGeometry
 (based on 7-base_geometry.py)
 Authors: Lusanco
 """
+
+
+BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 
 class Rectangle(BaseGeometry):
