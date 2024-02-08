@@ -2,7 +2,7 @@
 """
 Module Name: 11-square
 Description: class Square that inherits
-from Rectangle (9-rectangle.py).
+Rectangle (9-rectangle.py).
 (task based on 10-square.py)
 Authors: Lusanco
 """
@@ -12,7 +12,7 @@ Rectangle = __import__("9-rectangle").Rectangle
 
 
 class Square(Rectangle):
-    """Class inherits from Rectangle"""
+    """Class inherits Rectangle"""
 
     def __init__(self, size):
         self.integer_validator("size", size)
