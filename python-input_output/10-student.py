@@ -23,5 +23,5 @@ class Student:
             attrs_ = {}
             for attribute in attrs:
                 if hasattr(self, attribute):
-                    attrs_[attribute] = getattr(self,attribute)
+                    attrs_[attribute] = getattr(self, attribute)
         return attrs_
