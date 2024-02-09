@@ -9,7 +9,8 @@ Authors: Lusanco
 
 
 def pascal_triangle(n):
-    pass
+    """The Pascal Triangle"""
+
     if n <= 0:
         return []
     triangle = [[1]]
