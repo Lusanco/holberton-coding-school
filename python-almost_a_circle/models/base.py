@@ -2,13 +2,22 @@
 
 """
 Module: base
-Descrip: base class
+Descrip: This module contains
+the Base class, which serves
+as the foundation for other
+classes in the project.
 Authors: Lusanco
 """
 
 
 class Base:
-    """base class"""
+    """
+    Constructor for the Base class.
+
+    Parameters:
+    - id (int): An optional parameter representing the object's
+    identifier. If not provided, a unique id is assigned.
+    """
 
     __nb_objects = 0
 
