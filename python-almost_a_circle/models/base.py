@@ -2,26 +2,18 @@
 
 """
 Module: base
-Descrip: This module contains
-the Base class, which serves
-as the foundation for other
-classes in the project.
+Descrip: Base class
 Authors: Lusanco
 """
 
 
 class Base:
-    """
-    Constructor for the Base class.
-
-    Parameters:
-    - id (int): An optional parameter representing the object's
-    identifier. If not provided, a unique id is assigned.
-    """
+    """Base class for managing id attribute"""
 
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Initialize Base instance with id"""
         if id is not None:
             self.id = id
         else:
