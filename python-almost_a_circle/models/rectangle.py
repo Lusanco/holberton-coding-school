@@ -6,7 +6,6 @@ Descrip: Rectangle class
 Authors: Lusanco
 """
 
-
 from models.base import Base
 
 
@@ -15,65 +14,66 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize Rectangle with id, width, height, x, and y"""
-
+        self.validator("width", width)
+        self.validator("height", height)
+        self.validator("x", x)
+        self.validator("y", y)
         super().__init__(id)
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
 
-        @property
-        def width(self):
-            """Getter for width attribute."""
-            return self.__width
+    def validator(self, flag, value):
+        """Validation function for Rectangle"""
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(flag))
+        else:
+            if (flag == "width" or flag == "height") and value <= 0:
+                raise ValueError("{} must be > 0".format(flag))
+            if (flag == "x" or flag == "y") and value < 0:
+                raise ValueError("{} must be >= 0".format(flag))
 
-        @width.setter
-        def width(self, value):
-            """Setter for width attribute."""
-            if not isinstance(value, int):
-                raise TypeError("width must be an integer")
-            elif value <= 0:
-                raise ValueError("width must be > 0")
-            self.__width = value
+    @property
+    def width(self):
+        """Getter for width attribute."""
+        return self.__width
 
-        @property
-        def height(self):
-            """Getter for height attribute."""
-            return self.__height
+    @width.setter
+    def width(self, value):
+        """Setter for width attribute."""
+        self.validator("width", value)
+        self.__width = value
 
-        @height.setter
-        def height(self, value):
-            """Setter for height attribute."""
-            if not isinstance(value, int):
-                raise TypeError("height must be an integer")
-            elif value <= 0:
-                raise ValueError("height must be > 0")
-            self.__height = value
+    @property
+    def height(self):
+        """Getter for height attribute."""
+        return self.__height
 
-        @property
-        def x(self):
-            """Getter for x attribute."""
-            return self.__x
+    @height.setter
+    def height(self, value):
+        """Setter for height attribute."""
+        self.validator("height", value)
+        self.__height = value
 
-        @x.setter
-        def x(self, value):
-            """Setter for x attribute."""
-            if not isinstance(value, int):
-                raise TypeError("x must be an integer")
-            elif value < 0:
-                raise ValueError("x must be >= 0")
-            self.__x = value
+    @property
+    def x(self):
+        """Getter for x attribute."""
+        return self.__x
 
-        @property
-        def y(self):
-            """Getter for y attribute."""
-            return self.__y
+    @x.setter
+    def x(self, value):
+        """Setter for x attribute."""
+        self.validator("x", value)
+        self.__x = value
 
-        @y.setter
-        def y(self, value):
-            """Setter for y attribute."""
-            if not isinstance(value, int):
-                raise TypeError("y must be an integer")
-            elif value < 0:
-                raise ValueError("y must be >= 0")
-            self.__y = value
+    @property
+    def y(self):
+        """Getter for y attribute."""
+        return self.__y
+
+    @y.setter
+    def y(self, value):
+        """Setter for y attribute."""
+        self.validator("y", value)
+        self.__y = value
