@@ -111,6 +111,11 @@ class Rectangle(Base):
 
     def __str__(self):
         """String representation of Rectangle"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.__x, self.__y, self.__width, self.__height
-        )
+        r1 = "[Rectangle] ({}) {}/{} - {}/{}"
+        rid = self.id
+        rx = self.__x
+        ry = self.__y
+        rw = self.__width
+        rh = self.__height
+        r2 = r1.format(rid, rx, ry, rw, rh)
+        return
