@@ -118,4 +118,4 @@ class Rectangle(Base):
         rw = self.__width
         rh = self.__height
         r2 = r1.format(rid, rx, ry, rw, rh)
-        return
+        return r2
