@@ -13,6 +13,7 @@ class Square(Rectangle):
     """Square class inherited from Rectangle"""
 
     def __init__(self, size, x=0, y=0, id=None):
+        """Initialize Square with id, size, x, and y"""
         super().__init__(size, size, x, y, id)
 
     @property
@@ -27,7 +28,8 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        if args:
+        """Update attributes based on the arguments provided."""
+        if args and args[0]:
             attrs = ["id", "size", "x", "y"]
             for i, arg in enumerate(args):
                 setattr(self, attrs[i], arg)
@@ -36,5 +38,6 @@ class Square(Rectangle):
                 setattr(self, key, value)
 
     def __str__(self):
-        return "[Square] ({}) {}/{} - {}".format(
-                self.id, self.x, self.y, self.width)
+        """String representation of Square"""
+
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
