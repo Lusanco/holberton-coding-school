@@ -1,72 +1,63 @@
 #!/usr/bin/python3
+"""Unittest for Rectangle class"""
+
 import unittest
+from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
+import json
+import os
 
 
 class TestRectangle(unittest.TestCase):
-    def test_validator(self):
-        # Test validation with valid values
-        r = Rectangle(5, 5)
-        self.assertEqual(r.width, 5)
-        self.assertEqual(r.height, 5)
+    """Test cases for Rectangle class"""
 
-        # Test validation with invalid values
-        with self.assertRaises(ValueError):
-            r = Rectangle(-5, 5)
-        with self.assertRaises(TypeError):
-            r = Rectangle("invalid", 5)
+    def setUp(self):
+        """Set up for test cases"""
+        Base._Base__nb_objects = 0
 
-        # Test validation with empty inputs
-        with self.assertRaises(TypeError):
-            r = Rectangle()
-        with self.assertRaises(TypeError):
-            r = Rectangle(5)
-        with self.assertRaises(TypeError):
-            r = Rectangle(5, 5, 5, 5, 5, 5)  # too many arguments
+    def test_rectangle(self):
+        """Test case for non-list arguments"""
+        r1 = Rectangle(10, 2)
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r1.height, 2)
+        r3 = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(r3.id, 5)
+        self.assertEqual(r3.width, 1)
+        self.assertEqual(r3.height, 2)
+        self.assertEqual(r3.x, 3)
+        self.assertEqual(r3.y, 4)
 
-        # Test validation with None
-        with self.assertRaises(TypeError):
-            r = Rectangle(None, 5)
-        with self.assertRaises(TypeError):
-            r = Rectangle(5, None)
-        with self.assertRaises(TypeError):
-            r = Rectangle(None, None)
+    def test_rectangle_with_negative_arguments(self):
+        """Test case for negative arguments"""
+        self.assertRaises(ValueError, Rectangle, 10, -2)
+        self.assertRaises(ValueError, Rectangle, -10, 2)
+        self.assertRaises(ValueError, Rectangle, 10, 2, -3)
+        self.assertRaises(ValueError, Rectangle, 10, 2, 3, -4)
+
+    def test_rectangle_with_zero_arguments(self):
+        """Test case for zero arguments"""
+        self.assertRaises(ValueError, Rectangle, 10, 0)
+        self.assertRaises(ValueError, Rectangle, 0, 10)
+
+    def test_rectangle_with_non_list_argument(self):
+        """Test case for non-list arguments"""
+        self.assertRaises(TypeError, Rectangle, 2, "10")
+        self.assertRaises(TypeError, Rectangle, "10", 2)
+        self.assertRaises(TypeError, Rectangle, 10, 2, "5")
+        self.assertRaises(TypeError, Rectangle, 10, 2, 5, "3")
 
     def test_area(self):
-        # Test area calculation
-        r = Rectangle(5, 5)
-        self.assertEqual(r.area(), 25)
+        """Test case for area method"""
+        r1 = Rectangle(1, 2)
+        self.assertEqual(r1.area(), 2)
 
-        # Test area calculation with zero values
-        r = Rectangle(0, 5)
-        self.assertEqual(r.area(), 0)
-
-        # Test area calculation with negative values (should raise ValueError)
-        with self.assertRaises(ValueError):
-            r = Rectangle(-5, 5)
-
-        # Test area calculation with None (should raise TypeError)
-        with self.assertRaises(TypeError):
-            r = Rectangle(None, 5)
-        with self.assertRaises(TypeError):
-            r = Rectangle(5, None)
-        with self.assertRaises(TypeError):
-            r = Rectangle(None, None)
-
-        # Test area calculation with string (should raise TypeError)
-        with self.assertRaises(TypeError):
-            r = Rectangle("invalid", 5)
-        with self.assertRaises(TypeError):
-            r = Rectangle(5, "invalid")
-
-        # Test area calculation with empty inputs (should raise TypeError)
-        with self.assertRaises(TypeError):
-            r = Rectangle()
-        with self.assertRaises(TypeError):
-            r = Rectangle(5)
-        with self.assertRaises(TypeError):
-            r = Rectangle(5, 5, 5, 5, 5, 5)  # too many arguments
+    def test_str_rectangle(self):
+        """Test case for __str__ method"""
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(r1.__str__(), "[Rectangle] (5) 3/4 - 1/2")
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main
