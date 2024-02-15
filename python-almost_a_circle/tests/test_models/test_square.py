@@ -66,5 +66,5 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.__str__(), "[Square] (1) 2/3 - 2")
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
