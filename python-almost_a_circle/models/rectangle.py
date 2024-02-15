@@ -1,135 +1,121 @@
 #!/usr/bin/python3
-"""comment Modules"""
+
+"""
+Module: rectangle
+Descrip: Rectangle class
+Authors: Lusanco
+"""
+
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Class rectangle inherits from Base"""
+    """Rectangle class inherited from Base"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
-        if type(width) is not int:
-            raise TypeError("width must be an integer")
-        elif width <= 0:
-            raise ValueError("width must be > 0")
+        """Initialize Rectangle with id, width, height, x, and y"""
+        self.validator("width", width)
+        self.validator("height", height)
+        self.validator("x", x)
+        self.validator("y", y)
+        super().__init__(id)
         self.__width = width
-
-        if type(height) is not int:
-            raise TypeError("height must be an integer")
-        elif height <= 0:
-            raise ValueError("height must be > 0")
         self.__height = height
-
-        if type(x) is not int:
-            raise TypeError("x must be an integer")
-        elif x < 0:
-            raise ValueError("x must be >= 0")
         self.__x = x
-
-        if type(y) is not int:
-            raise TypeError("y must be an integer")
-        elif y < 0:
-            raise ValueError("y must be >= 0")
         self.__y = y
 
-        super().__init__(id)
+    def validator(self, flag, value):
+        """Validation function for Rectangle"""
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(flag))
+        else:
+            if (flag == "width" or flag == "height") and value <= 0:
+                raise ValueError("{} must be > 0".format(flag))
+            if (flag == "x" or flag == "y") and value < 0:
+                raise ValueError("{} must be >= 0".format(flag))
 
     @property
     def width(self):
+        """Getter for width attribute."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        elif value <= 0:
-            raise ValueError("width must be > 0")
+        """Setter for width attribute."""
+        self.validator("width", value)
         self.__width = value
 
     @property
     def height(self):
+        """Getter for height attribute."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        if type(value) is not int:
-            raise TypeError("height must be an integer")
-        elif value <= 0:
-            raise ValueError("height must be > 0")
+        """Setter for height attribute."""
+        self.validator("height", value)
         self.__height = value
 
     @property
     def x(self):
+        """Getter for x attribute."""
         return self.__x
 
     @x.setter
     def x(self, value):
-        if type(value) is not int:
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
+        """Setter for x attribute."""
+        self.validator("x", value)
         self.__x = value
 
     @property
     def y(self):
+        """Getter for y attribute."""
         return self.__y
 
     @y.setter
     def y(self, value):
-        if type(value) is not int:
-            raise TypeError("y must be an integer")
-        if value < 0:
-            raise ValueError("y must be >= 0")
+        """Setter for y attribute."""
+        self.validator("y", value)
         self.__y = value
 
     def area(self):
-        """Comment function"""
+        """Calculate area of Rectangle"""
         return self.__width * self.__height
 
     def display(self):
-        """comment function display"""
-        for i in range(self.__y):
+        """Display '#' Rectangle"""
+        for _ in range(self.__y):
             print()
-        for i in range(self.__height):
-            for j in range(self.__x):
-                print(" ", end="")
-            for a in range(self.__width):
-                print("#", end="")
-            print()
-
-    def __str__(self):
-        """comment function"""
-        return (f'[Rectangle] ({self.id}) {self.x}/{self.y} - '
-                f'{self.width}/{self.height}')
+        for _ in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
 
     def update(self, *args, **kwargs):
-        """comment Function"""
+        """Update attributes based on the arguments provided."""
         if args:
-            self.id = args[0]
-            if len(args) > 1:
-                self.__width = args[1]
-            if len(args) > 2:
-                self.__height = args[2]
-            if len(args) > 3:
-                self.__x = args[3]
-            if len(args) > 4:
-                self.__y = args[4]
-        else:
-            if 'id' in kwargs:
-                self.id = kwargs['id']
-            if 'width' in kwargs:
-                self.width = kwargs['width']
-            if 'height' in kwargs:
-                self.height = kwargs['height']
-            if 'x' in kwargs:
-                self.x = kwargs['x']
-            if 'y' in kwargs:
-                self.y = kwargs['y']
+            attrs = ["id", "width", "height", "x", "y"]
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def to_dictionary(self):
-        """Return dictionary representation of the Rectangle."""
-        rect_dict = {}
-        rect_dict['id'] = self.id
-        rect_dict['width'] = self.width
-        rect_dict['height'] = self.height
-        rect_dict['x'] = self.x
-        rect_dict['y'] = self.y
-        return rect_dict
+        """Dictionary representation of Rectangle"""
+        return {
+            "x": self.x,
+            "y": self.y,
+            "id": self.id,
+            "height": self.height,
+            "width": self.width,
+        }
+
+    def __str__(self):
+        """String representation of Rectangle"""
+        r1 = "[Rectangle] ({}) {}/{} - {}/{}"
+        rid = self.id
+        rx = self.__x
+        ry = self.__y
+        rw = self.__width
+        rh = self.__height
+        r2 = r1.format(rid, rx, ry, rw, rh)
+        return r2
