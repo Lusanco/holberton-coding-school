@@ -24,6 +24,51 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
+    def area(self):
+        """Calculate area of Rectangle"""
+        return self.__width * self.__height
+
+    def display(self):
+        """Display '#' Rectangle"""
+        for _ in range(self.__y):
+            print()
+        for fila in range(self.__height):
+            print(str(" " * self.__x), end="")
+            print(str("#" * self.__width))
+
+    @property
+    def height(self):
+        """Getter for height attribute."""
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """Setter for height attribute."""
+        self.validator("height", value)
+        self.__height = value
+
+    def to_dictionary(self):
+        """Dictionary representation of Rectangle"""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y,
+        }
+
+    def update(self, *args, **kwargs):
+        """Update attributes based on the arguments provided."""
+        attrs = ["id", "width", "height", "x", "y"]
+        if args:
+            for i, arg in enumerate(args):
+                self.validator(i, arg)
+                setattr(self, attrs[i], arg)
+        else:
+            for key, value in kwargs.items():
+                self.validator(i, arg)
+                setattr(self, key, value)
+
     def validator(self, flag, value):
         """Validation function for Rectangle"""
         if not isinstance(value, int):
@@ -46,17 +91,6 @@ class Rectangle(Base):
         self.__width = value
 
     @property
-    def height(self):
-        """Getter for height attribute."""
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        """Setter for height attribute."""
-        self.validator("height", value)
-        self.__height = value
-
-    @property
     def x(self):
         """Getter for x attribute."""
         return self.__x
@@ -77,37 +111,6 @@ class Rectangle(Base):
         """Setter for y attribute."""
         self.validator("y", value)
         self.__y = value
-
-    def area(self):
-        """Calculate area of Rectangle"""
-        return self.__width * self.__height
-
-    def display(self):
-        """Display '#' Rectangle"""
-        for _ in range(self.__y):
-            print()
-        for _ in range(self.__height):
-            print(" " * self.__x + "#" * self.__width)
-
-    def update(self, *args, **kwargs):
-        """Update attributes based on the arguments provided."""
-        if args:
-            attrs = ["id", "width", "height", "x", "y"]
-            for i, arg in enumerate(args):
-                setattr(self, attrs[i], arg)
-        elif kwargs:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
-
-    def to_dictionary(self):
-        """Dictionary representation of Rectangle"""
-        return {
-            "x": self.x,
-            "y": self.y,
-            "id": self.id,
-            "height": self.height,
-            "width": self.width,
-        }
 
     def __str__(self):
         """String representation of Rectangle"""
