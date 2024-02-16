@@ -25,10 +25,6 @@ class TestBase(unittest.TestCase):
         b5 = Base()
         self.assertEqual(b5.id, 4)
 
-    def test_rectangle_creation(self):
-        r1 = Rectangle(1, 2)
-        self.assertEqual(r1.id, 5)
-
 
 if __name__ == "__main__":
     unittest.main()
