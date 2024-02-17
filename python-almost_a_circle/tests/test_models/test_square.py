@@ -52,6 +52,10 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             Square(0)
 
+    def test_str(self):
+        s = Square(1, 2, 3, 4)
+        self.assertEqual(s.__str__(), "[Square] (4) 2/3 - 1")
+
 
 if __name__ == "__main__":
     unittest.main()
