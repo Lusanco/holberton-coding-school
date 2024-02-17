@@ -9,25 +9,37 @@ class TestSquare(unittest.TestCase):
     def setUp(self):
         Base._Base__nb_objects = 0
 
-    def test_square_creation(self):
-        s1 = Square(5)
+    def test_square(self):
+        s1 = Square(1)
         self.assertEqual(s1.id, 1)
+        self.assertEqual(s1.size, 1)
 
-        s2 = Square(2, 2)
-        self.assertEqual(s2.id, 2)
-
-        s3 = Square(3, 1, 3)
-        self.assertEqual(s3.id, 3)
-
-    def test_size_property(self):
-        s1 = Square(5)
-        self.assertEqual(s1.size, 5)
-
-        s1.size = 10
-        self.assertEqual(s1.size, 10)
+        s2 = Square(1, 2, 3, 4)
+        self.assertEqual(s2.id, 4)
+        self.assertEqual(s2.size, 1)
+        self.assertEqual(s2.x, 2)
+        self.assertEqual(s2.y, 3)
 
         with self.assertRaises(TypeError):
-            s1.size = "9"
+            Square("1")
+
+        with self.assertRaises(TypeError):
+            Square(1, "2")
+
+        with self.assertRaises(TypeError):
+            Square(1, 2, "3")
+
+        with self.assertRaises(ValueError):
+            Square(-1)
+
+        with self.assertRaises(ValueError):
+            Square(1, -2)
+
+        with self.assertRaises(ValueError):
+            Square(1, 2, -3)
+
+        with self.assertRaises(ValueError):
+            Square(0)
 
 
 if __name__ == "__main__":
