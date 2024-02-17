@@ -27,6 +27,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.id, 5)
 
     def test_invalid_inputs(self):
+        Rectangle(1, 2)
+
         with self.assertRaises(TypeError):
             Rectangle("1", 2)
 
