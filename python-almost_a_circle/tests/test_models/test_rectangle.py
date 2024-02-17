@@ -112,6 +112,33 @@ class TestRectangle(unittest.TestCase):
         # Assert that the actual dictionary matches the expected dictionary
         self.assertDictEqual(actual_dict, expected_dict)
 
+    def test_update(self):
+        # Create a Rectangle instance for testing
+        r = Rectangle(10, 20, 30, 40, 1)
+
+        # Test update with no arguments
+        r.update()
+        self.assertEqual((r.width, r.height, r.x, r.y, r.id), (10, 20, 30, 40, 1))
+
+        # Test update with one argument
+        r.update(89)
+        self.assertEqual(r.id, 89)
+
+        # Test update with multiple arguments
+        r.update(89, 1, 2, 3, 4)
+        self.assertEqual((r.id, r.width, r.height, r.x, r.y), (89, 1, 2, 3, 4))
+
+        # # Test update with **kwargs
+        # r.update(**{"id": 89})
+        # self.assertEqual(r.id, 89)
+
+        # r.update(**{"id": 89, "width": 1, "height": 2, "x": 3, "y": 4})
+        # self.assertEqual((r.id, r.width, r.height, r.x, r.y), (89, 1, 2, 3, 4))
+
+        # # Test update with a mix of *args and **kwargs
+        # r.update(100, **{"width": 5, "y": 10})
+        # self.assertEqual((r.id, r.width, r.height, r.x, r.y), (100, 5, 2, 3, 10))
+
 
 if __name__ == "__main__":
     unittest.main()
