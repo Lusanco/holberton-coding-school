@@ -9,13 +9,9 @@ class TestRectangle(unittest.TestCase):
     def setUp(self):
         Base._Base__nb_objects = 0
 
-    def test_rectangle_creation(self):
-        # r = Rectangle(1, 2)
-        # self.assertEqual(r.width, 1)
-        # self.assertEqual(r.height, 2)
-
+    def test_rectangle(self):
         r1 = Rectangle(1, 2)
-        self.assertTrue(r1)
+        self.assertEqual(r1.id, 1)
 
         r2 = Rectangle(1, 2, 3)
         self.assertEqual(r2.id, 2)
@@ -25,9 +21,6 @@ class TestRectangle(unittest.TestCase):
 
         r4 = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(r4.id, 5)
-
-    def test_invalid_inputs(self):
-        Rectangle(1, 2)
 
         with self.assertRaises(TypeError):
             Rectangle("1", 2)
