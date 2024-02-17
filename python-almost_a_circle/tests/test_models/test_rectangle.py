@@ -15,6 +15,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.width, 1)
         self.assertEqual(r1.height, 2)
 
+        r2 = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(r2.id, 5)
+        self.assertEqual(r2.width, 1)
+        self.assertEqual(r2.height, 2)
+        self.assertEqual(r2.x, 3)
+        self.assertEqual(r2.y, 4)
+
         with self.assertRaises(TypeError):
             Rectangle("1", 2)
 
