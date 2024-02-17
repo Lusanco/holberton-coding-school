@@ -12,7 +12,10 @@ import json
 
 class Base:
     """
-    Base class for all other classes that manage id attribute in all your future classes, avoiding duplicating the same code
+    Base class for all other classes
+    that manage id attribute in all
+    your future classes, avoiding
+    duplicating the same code
     """
 
     __nb_objects = 0

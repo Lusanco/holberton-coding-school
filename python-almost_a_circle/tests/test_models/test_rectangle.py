@@ -119,7 +119,9 @@ class TestRectangle(unittest.TestCase):
 
         # Test update with no arguments
         r.update()
-        self.assertEqual((r.width, r.height, r.x, r.y, r.id), (10, 20, 30, 40, 1))
+        arg1 = (r.width, r.height, r.x, r.y, r.id)
+        arg2 = (10, 20, 30, 40, 1)
+        self.assertEqual(arg1, arg2)
 
         # Test update with one argument
         r.update(89)
