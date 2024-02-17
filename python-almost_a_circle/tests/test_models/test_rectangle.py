@@ -60,6 +60,11 @@ class TestRectangle(unittest.TestCase):
         r4 = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(r4.__str__(), "[Rectangle] (5) 3/4 - 1/2")
 
+    def test_display(self):
+        r5 = Rectangle(1, 2)
+        self.assertTrue(hasattr(r5, "display"))
+        self.assertTrue(callable(getattr(r5, "display")))
+
 
 if __name__ == "__main__":
     unittest.main()
