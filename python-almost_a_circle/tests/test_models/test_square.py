@@ -94,8 +94,7 @@ class TestSquare(unittest.TestCase):
         s1_dictionary = s1.to_dictionary()
         s2 = Rectangle.create(**s1_dictionary)
         self.assertEqual(s1.id, s2.id)
-        self.assertEqual(s1.width, s2.width)
-        self.assertEqual(s1.height, s2.height)
+        self.assertEqual(s1.size, s2.size)
         self.assertEqual(s1.x, s2.x)
         self.assertEqual(s1.y, s2.y)
 
