@@ -79,6 +79,21 @@ class TestRectangle(unittest.TestCase):
         # Assert that the printed output matches the expected output
         self.assertEqual(actual_output, expected_output)
 
+        # Create a Rectangle instance for testing
+        r6 = Rectangle(1, 2, 0, 0)
+
+        # Expected output for a 1x2 rectangle
+        expected_output = "#\n#\n#\n#\n"
+
+        # Call the display method
+        r6.display()
+
+        # Get the printed output
+        actual_output = mock_stdout.getvalue()
+
+        # Assert that the printed output matches the expected output
+        self.assertEqual(actual_output, expected_output)
+
 
 if __name__ == "__main__":
     unittest.main()
