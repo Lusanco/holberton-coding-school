@@ -2,6 +2,7 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+import os
 
 
 class TestSquare(unittest.TestCase):
@@ -74,7 +75,7 @@ class TestSquare(unittest.TestCase):
         self.assertDictEqual(actual_dict, expected_dict)
 
     def test_update(self):
-        # Create a Rectangle instance for testing
+        # Create a Square instance for testing
         s = Square(10, 20, 30, 40)
 
         # Test update with no arguments
@@ -97,6 +98,47 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.size, s2.size)
         self.assertEqual(s1.x, s2.x)
         self.assertEqual(s1.y, s2.y)
+
+    def test_save_to_file(self):
+        s1 = Square(10, 7, 2, 8)
+        s2 = Square(2, 4)
+        list_squares = [s1, s2]
+
+        Square.save_to_file(list_squares)
+
+        file_name = "Square.json"
+        self.assertTrue(os.path.exists(file_name))
+
+        with open(file_name, "r") as file:
+            content = file.read()
+            self.assertTrue(len(content) > 0)
+
+        os.remove(file_name)
+
+        Square.save_to_file(None)
+        file_name = "Square.json"
+        self.assertTrue(os.path.exists(file_name))
+        os.remove(file_name)
+
+        Square.save_to_file([])
+        file_name = "Square.json"
+        self.assertTrue(os.path.exists(file_name))
+        os.remove(file_name)
+
+    def test_load_from_file(self):
+        result = Square.load_from_file()
+        self.assertEqual(result, [])
+
+        s1 = Square(10, 7, 2, 8)
+        s2 = Square(2, 4)
+        list_rectangles = [s1, s2]
+
+        Square.save_to_file(list_rectangles)
+
+        result = Square.load_from_file()
+        self.assertEqual(len(result), 2)
+
+        os.remove("Square.json")
 
 
 if __name__ == "__main__":
