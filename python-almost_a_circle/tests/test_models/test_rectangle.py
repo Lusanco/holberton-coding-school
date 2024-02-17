@@ -80,10 +80,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(actual_output, expected_output)
 
         # Create a Rectangle instance for testing
-        r6 = Rectangle(1, 2, 0, 0)
+        r6 = Rectangle(1, 2, 3, 4)
 
         # Expected output for a 1x2 rectangle
-        expected_output = "#\n#\n#\n#\n"
+        expected_output = "#\n#\n\n\n\n\n   #\n   #\n"
 
         # Call the display method
         r6.display()
