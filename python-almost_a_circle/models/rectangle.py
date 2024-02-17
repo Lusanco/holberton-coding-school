@@ -61,12 +61,12 @@ class Rectangle(Base):
         """Update attributes based on the arguments provided."""
         attrs = ["id", "width", "height", "x", "y"]
         if args:
-            for i, arg in enumerate(args):
-                self.validator(i, arg)
-                setattr(self, attrs[i], arg)
+            for key, value in zip(attrs, args):
+                self.validator(key, value)
+                setattr(self, key, value)
         else:
             for key, value in kwargs.items():
-                self.validator(i, arg)
+                self.validator(key, value)
                 setattr(self, key, value)
 
     def validator(self, flag, value):

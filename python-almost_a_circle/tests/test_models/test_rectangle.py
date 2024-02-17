@@ -128,16 +128,15 @@ class TestRectangle(unittest.TestCase):
         r.update(89, 1, 2, 3, 4)
         self.assertEqual((r.id, r.width, r.height, r.x, r.y), (89, 1, 2, 3, 4))
 
-        # # Test update with **kwargs
-        # r.update(**{"id": 89})
-        # self.assertEqual(r.id, 89)
-
-        # r.update(**{"id": 89, "width": 1, "height": 2, "x": 3, "y": 4})
-        # self.assertEqual((r.id, r.width, r.height, r.x, r.y), (89, 1, 2, 3, 4))
-
-        # # Test update with a mix of *args and **kwargs
-        # r.update(100, **{"width": 5, "y": 10})
-        # self.assertEqual((r.id, r.width, r.height, r.x, r.y), (100, 5, 2, 3, 10))
+    def test_create(self):
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(r1.id, r2.id)
+        self.assertEqual(r1.width, r2.width)
+        self.assertEqual(r1.height, r2.height)
+        self.assertEqual(r1.x, r2.x)
+        self.assertEqual(r1.y, r2.y)
 
 
 if __name__ == "__main__":
