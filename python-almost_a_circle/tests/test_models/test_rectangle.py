@@ -94,6 +94,24 @@ class TestRectangle(unittest.TestCase):
         # Assert that the printed output matches the expected output
         self.assertEqual(actual_output, expected_output)
 
+    def test_to_dictionary(self):
+        r7 = Rectangle(1, 2, 3, 4)
+
+        # Expected dictionary representation
+        expected_dict = {
+            "id": r7.id,
+            "width": r7.width,
+            "height": r7.height,
+            "x": r7.x,
+            "y": r7.y,
+        }
+
+        # Get the actual dictionary representation
+        actual_dict = r7.to_dictionary()
+
+        # Assert that the actual dictionary matches the expected dictionary
+        self.assertDictEqual(actual_dict, expected_dict)
+
 
 if __name__ == "__main__":
     unittest.main()
