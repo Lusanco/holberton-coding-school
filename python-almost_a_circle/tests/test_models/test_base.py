@@ -25,6 +25,9 @@ class TestBase(unittest.TestCase):
         b5 = Base()
         self.assertEqual(b5.id, 4)
 
+        r1 = Rectangle()
+        self.assertEqual(r1.id, 5)
+
 
 if __name__ == "__main__":
     unittest.main()
