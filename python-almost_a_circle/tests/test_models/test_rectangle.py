@@ -4,6 +4,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 from unittest.mock import patch
 from io import StringIO
+import os
 
 
 class TestRectangle(unittest.TestCase):
@@ -137,6 +138,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, r2.height)
         self.assertEqual(r1.x, r2.x)
         self.assertEqual(r1.y, r2.y)
+
+    def test_save_to_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles = [r1, r2]
+
+        Rectangle.save_to_file(list_rectangles)
+
+        file_name = "Rectangle.json"
+        self.assertTrue(os.path.exists(file_name))
+
+        with open(file_name, "r") as file:
+            content = file.read()
+            self.assertTrue(len(content) > 0)
+
+        os.remove(file_name)
 
 
 if __name__ == "__main__":
