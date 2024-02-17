@@ -73,6 +73,22 @@ class TestSquare(unittest.TestCase):
         # Assert that the actual dictionary matches the expected dictionary
         self.assertDictEqual(actual_dict, expected_dict)
 
+    def test_update(self):
+        # Create a Rectangle instance for testing
+        s = Square(10, 20, 30, 40)
+
+        # Test update with no arguments
+        s.update()
+        self.assertEqual((s.size, s.x, s.y, s.id), (10, 20, 30, 40))
+
+        # Test update with one argument
+        s.update(89)
+        self.assertEqual(s.id, 89)
+
+        # Test update with multiple arguments
+        s.update(89, 1, 2, 3)
+        self.assertEqual((s.id, s.size, s.x, s.y), (89, 1, 2, 3))
+
 
 if __name__ == "__main__":
     unittest.main()
