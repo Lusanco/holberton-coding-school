@@ -155,6 +155,16 @@ class TestRectangle(unittest.TestCase):
 
         os.remove(file_name)
 
+        Rectangle.save_to_file(None)
+        file_name = "Rectangle.json"
+        self.assertTrue(os.path.exists(file_name))
+        os.remove(file_name)
+
+        Rectangle.save_to_file([])
+        file_name = "Rectangle.json"
+        self.assertTrue(os.path.exists(file_name))
+        os.remove(file_name)
+
 
 if __name__ == "__main__":
     unittest.main()
