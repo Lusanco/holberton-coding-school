@@ -92,7 +92,7 @@ class TestSquare(unittest.TestCase):
     def test_create(self):
         s1 = Square(1, 2, 3, 89)
         s1_dictionary = s1.to_dictionary()
-        s2 = Rectangle.create(**s1_dictionary)
+        s2 = Square.create(**s1_dictionary)
         self.assertEqual(s1.id, s2.id)
         self.assertEqual(s1.size, s2.size)
         self.assertEqual(s1.x, s2.x)
