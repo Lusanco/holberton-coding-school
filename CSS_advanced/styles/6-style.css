@@ -19,13 +19,13 @@
 html {
     scroll-behavior: smooth;
     font-size: 62.5%;
-    font-weight: var(--font-weight-regular);
 }
 
 body {
     color: var(--text-color);
     font-family: var(--font-family-base);
     font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-regular);
 }
 
 a {
