@@ -234,7 +234,7 @@ h6 {
   font-weight: var(--font-weight-bold);
 }
 
-ul .row {
+ul.row {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -305,7 +305,7 @@ ul .row {
 }
 
 .footer-copyright {
-  margin: none;
+  margin: 0;
   font-size: var(--font-size-small);
   color: var(--text-color);
 }
