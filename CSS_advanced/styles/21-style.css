@@ -349,13 +349,13 @@ ul.row {
   clear: both;
 }
 
-[class^="col-"] {
-  float: left;
-  padding: 0.5rem;
-}
-
 .col-1-2,
 .col-1-2 {
   float: none;
+  padding: 0;
+}
+
+[class^="col-"] {
+  float: left;
   padding: 0.5rem;
 }
