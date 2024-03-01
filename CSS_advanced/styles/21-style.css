@@ -357,5 +357,5 @@ ul.row {
 .col-1-2,
 .col-1-2 {
   float: none;
-  padding: 0;
+  padding: 0.5rem;
 }
