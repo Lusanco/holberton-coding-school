@@ -24,7 +24,7 @@ def main():
     password = argv[2]
     database = argv[3]
 
-# Connect to the server (MySQL)
+    # Connect to the server (MySQL)
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
