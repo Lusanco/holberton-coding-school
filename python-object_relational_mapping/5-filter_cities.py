@@ -52,9 +52,7 @@ def main():
     # Fetch all the rows
     rows = cur.fetchall()
 
-    for row in rows:
-        print(row)
-    # print(", ".join([row[0] for row in rows]))
+    print(", ".join([row[0] for row in rows]))
 
     # Close connection
     cur.close()
