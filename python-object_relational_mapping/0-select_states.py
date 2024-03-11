@@ -13,19 +13,18 @@ import MySQLdb
 from sys import argv
 
 # Debugging module
-# from icecream import ic
+from icecream import ic
+
 
 def main():
     """Main Program"""
-    
-    
+
     # varibale arguments
     username = argv[1]
     password = argv[2]
     database = argv[3]
 
-
-    # Connect to the server (MySQL)
+# Connect to the server (MySQL)
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -49,6 +48,7 @@ def main():
     cur.close()
     db.close()
 
+
 # Prevents execution when imported
 if __name__ == "__main__":
-        main()
+    main()
