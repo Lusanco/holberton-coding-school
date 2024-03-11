@@ -13,7 +13,7 @@ import MySQLdb
 from sys import argv
 
 # Debugging module
-from icecream import ic
+# from icecream import ic
 
 def main():
     """Main Program"""
@@ -37,7 +37,7 @@ def main():
     cur = db.cursor()
 
     # Run the SQL statement
-    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    cur.execute("SELECT * FROM states")
 
     # Fetch all the rows
     rows = cur.fetchall()
