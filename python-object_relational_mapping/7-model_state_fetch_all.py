@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Module: Model State
+Module: Model State Fetch All
 Author: Lusanco
 Descri: Script that lists all State
 objects from the database hbtn_0e_6_usa
