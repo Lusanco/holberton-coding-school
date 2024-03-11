@@ -13,7 +13,7 @@ import MySQLdb
 from sys import argv
 
 # Debugging module
-from icecream import ic
+# from icecream import ic
 
 
 def main():
