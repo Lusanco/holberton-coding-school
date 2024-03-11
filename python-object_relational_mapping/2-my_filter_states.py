@@ -39,7 +39,7 @@ def main():
     cur = db.cursor()
 
     # Query Variable
-    statement = "SELECT * FROM states WHERE name = '{}'"
+    statement = "SELECT * FROM states WHERE name LIKE '{}'"
     statement = statement.format(state)
 
     # Run the SQL statement
