@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
 """
-Module: Model State Filter A
+Module: Model State Insert
 Author: Lusanco
-Descri: Script that lists all State
-objects that contain the letter 'a'
-from the database hbtn_0e_6_usa
+Descri: Script that adds the
+State object "Louisiana" to
+the database hbtn_0e_6_usa
 """
 
 
