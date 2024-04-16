@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-    Api REST
+1-export_to_CSV.py
+holbertonschool-back-end/api
 """
 
 import csv
@@ -9,59 +10,61 @@ import requests
 from sys import argv
 
 
-def get_employee(id=None):
+def export_to_csv(id=None):
     """
-    using this REST API, for a given employee ID,
-    returns information about his/her TODO list progress.
+    Returns information about TODO list progress,
+    for a given employee ID, using REST API.
+    Extend script to export data in the CSV format.
     """
-    # check if argv[1] is a number int, it means we are using argv
+
     if len(argv) > 1:
         try:
             id = int(argv[1])
         except ValueError:
-            pass
             return
 
     if isinstance(id, int):
-        user = requests.get(f"https://jsonplaceholder.typicode.com/users/{id}")
-        to_dos = requests.get(
-            f"https://jsonplaceholder.typicode.com/todos/?userId={id}"
-        )
+        base_url = "https://jsonplaceholder.typicode.com"
+        user_url = requests.get(f"{base_url}/users/{id}")
+        todo_url = requests.get(f"{base_url}/todos/?userId={id}")
 
-        if to_dos.status_code == 200 and user.status_code == 200:
-            user = json.loads(user.text)
-            to_dos = json.loads(to_dos.text)
-
-            total_tasks = len(to_dos)
-            tasks_completed = 0
-            titles_completed = []
+        if user_url.status_code == 200 and todo_url.status_code == 200:
+            user_url = json.loads(user_url.text)
+            todo_url = json.loads(todo_url.text)
+            total_number_of_tasks = len(todo_url)
+            number_of_done_tasks = 0
+            done_tasks = []
             csv_rows = []
             user_id = id
+            employee_name = user_url["name"]
 
-            for to_do in to_dos:
-                # Prepare rows for csv file
-                # fmt: off
+            for todo in todo_url:
                 csv_rows.append(
-                    [user_id,
-                     user["username"],
-                     to_do["completed"],
-                     to_do["title"]]
+                    [
+                        user_id,
+                        user_url["username"],
+                        todo["completed"],
+                        todo["title"],
+                    ]
                 )
-                # fmt: on
-                # Count and append titles of completed tasks
-                if to_do["completed"] is True:
-                    tasks_completed += 1
-                    titles_completed.append(to_do["title"])
+                if todo["completed"] is True:
+                    number_of_done_tasks += 1
+                    done_tasks.append(todo["title"])
 
-            tasks_completed = len(titles_completed)
+            number_of_done_tasks = len(done_tasks)
 
-            # Data of User Prints with tasks
+            # fmt: off
             print(
-                f"Employee {user['name']} is done \
-                  with tasks({tasks_completed}/{total_tasks})"
+                "Employee {} is done with tasks({}/{}):".format(
+                    employee_name,
+                    number_of_done_tasks,
+                    total_number_of_tasks
+                )
             )
-            for title in titles_completed:
-                print(f"\t {title}")
+            # fmt: on
+
+            for task in done_tasks:
+                print(f"\t {task}")
 
             with open(f"{user_id}.csv", "w", newline="") as csv_file:
                 writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
@@ -69,4 +72,4 @@ def get_employee(id=None):
 
 
 if __name__ == "__main__":
-    get_employee()
+    export_to_csv()
