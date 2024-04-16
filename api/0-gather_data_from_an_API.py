@@ -49,7 +49,9 @@ import sys
 #     data_from_api()
 
 
-if __name__ == "__main__":
+def data_from_api():
+    """Gather data from an API by input ID"""
+
     employee_id = int(sys.argv[1])
 
     base_url = "https://jsonplaceholder.typicode.com"
@@ -63,22 +65,27 @@ if __name__ == "__main__":
     user_res = requests.get(user_url)
     todo_res = requests.get(todo_url)
 
-    employee_name = user_res.json()["name"]
+    EMPLOYEE_NAME = user_res.json()["name"]
     tasks = todo_res.json()
-    total_tasks = len(tasks)
+    TOTAL_NUMBER_OF_TASKS = len(tasks)
 
     done_tasks = []
     for task in tasks:
         if task["completed"]:
             done_tasks.append(task)
 
-    num_done_tasks = len(done_tasks)
+    NUMBER_OF_DONE_TASKS = len(done_tasks)
 
     print(
         "Employee {} is done with tasks({}/{}):".format(
-            employee_name, num_done_tasks, total_tasks
+            EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS
         )
     )
 
     for task in done_tasks:
-        print(f"\t {task['title']}")
+        TASK_TITLE = task["title"]
+        print("\t {}".format(TASK_TITLE))
+
+
+if __name__ == "__main__":
+    data_from_api()
