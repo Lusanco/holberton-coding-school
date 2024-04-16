@@ -40,9 +40,14 @@ def get_employee(id=None):
 
             for to_do in to_dos:
                 # Prepare rows for csv file
+                # fmt: off
                 csv_rows.append(
-                    [user_id, user["username"], to_do["completed"], to_do["title"]]
+                    [user_id,
+                     user["username"],
+                     to_do["completed"],
+                     to_do["title"]]
                 )
+                # fmt: on
                 # Count and append titles of completed tasks
                 if to_do["completed"] is True:
                     tasks_completed += 1

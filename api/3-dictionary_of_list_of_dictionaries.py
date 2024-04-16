@@ -20,8 +20,8 @@ for employee_id in user_ids:
     response = requests.get(api_url)
 
     employee_name = response.json()["username"]
-
-    api_url2 = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
+    base_url = "https://jsonplaceholder.typicode.com"
+    api_url2 = f"{base_url}/todos?userId={employee_id}"
     response = requests.get(api_url2)
 
     tasks = response.json()
