@@ -1,39 +1,56 @@
 #!/usr/bin/python3
-"""Documentation"""
+"""
+3-dictionary_of_list_of_dictionaries.py
+holbertonschool-back-end/api
+"""
+
 import json
 import requests
 
-api_users_url = "https://jsonplaceholder.typicode.com/users"
-api_todos_url = "https://jsonplaceholder.typicode.com/todos"
 
-response = requests.get(api_users_url)
-users = response.json()
+def list_of_dictionaries():
+    """
+    Returns information about TODO list progress,
+    for a given employee ID, using REST API.
+    Extend script to export data in the JSON format.
+    """
 
-user_ids = []
-for user in users:
-    user_ids.append(user["id"])
+    api_users_url = "https://jsonplaceholder.typicode.com/users"
+    api_todos_url = "https://jsonplaceholder.typicode.com/todos"
 
-json_dict = {}
+    response = requests.get(api_users_url)
+    users = response.json()
 
-for employee_id in user_ids:
-    api_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-    response = requests.get(api_url)
+    user_ids = []
+    for user in users:
+        user_ids.append(user["id"])
 
-    employee_name = response.json()["username"]
-    base_url = "https://jsonplaceholder.typicode.com"
-    api_url2 = f"{base_url}/todos?userId={employee_id}"
-    response = requests.get(api_url2)
+    json_dict = {}
 
-    tasks = response.json()
+    for id in user_ids:
+        base_url = "https://jsonplaceholder.typicode.com"
+        user_url = f"{base_url}/users/{id}"
+        todo_url = f"{base_url}/todos/?userId={id}"
 
-    json_dict[employee_id] = []
-    for task in tasks:
-        json_format = {
-            "username": employee_name,
-            "task": task["title"],
-            "completed": task["completed"],
-        }
-        json_dict[employee_id].append(json_format)
+        response = requests.get(user_url)
+        employee_name = response.json()["username"]
+        response = requests.get(todo_url)
+        tasks = response.json()
 
-with open("todo_all_employees.json", "w") as json_file:
-    json.dump(json_dict, json_file)
+        json_dict[id] = []
+
+        for task in tasks:
+            json_format = {
+                "username": employee_name,
+                "task": task["title"],
+                "completed": task["completed"],
+            }
+
+            json_dict[id].append(json_format)
+
+    with open("todo_all_employees.json", "w") as json_file:
+        json.dump(json_dict, json_file)
+
+
+if __name__ == "__main__":
+    list_of_dictionaries()
