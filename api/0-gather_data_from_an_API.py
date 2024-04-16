@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 """
-    Api REST
+0-gather_data_from_an_API.py
+holbertonschool-back-end/api
 """
 
 import requests
 from sys import argv
 
 
-def get_employee(id=None):
+def data_from_api(id=None):
     """
-    using this REST API, for a given employee ID,
-    returns information about his/her TODO list progress.
+    Returns information about TODO list progress,
+    for a given employee ID, using REST API.
     """
-    # check if argv[1] is a number int, it means we are using argv
+
     if len(argv) > 1:
         try:
             id = int(argv[1])
@@ -20,28 +21,30 @@ def get_employee(id=None):
             return
 
     if isinstance(id, int):
-        base = "https://jsonplaceholder.typicode.com"
-        user = requests.get(f"{base}/users/{id}").json()
-        to_dos = requests.get(f"{base}/todos/?userId={id}").json()
+        base_url = "https://jsonplaceholder.typicode.com"
+        user_url = requests.get(f"{base_url}/users/{id}").json()
+        todo_url = requests.get(f"{base_url}/todos/?userId={id}").json()
 
-        if user and to_dos:
-            total_tasks = len(to_dos)
+        if user_url and todo_url:
+            employee_name = user_url["name"]
+            total_number_of_tasks = len(todo_url)
             # fmt: off
-            titles_completed = [task["title"]
-                                for task in to_dos
-                                if task["completed"]]
-            # fmt: on
-            tasks_completed = len(titles_completed)
+            done_tasks = [task["title"] for task in todo_url
+                          if task["completed"]]
+            number_of_done_tasks = len(done_tasks)
 
             print(
                 "Employee {} is done with tasks({}/{}):".format(
-                    user["name"], tasks_completed, total_tasks
+                    employee_name,
+                    number_of_done_tasks,
+                    total_number_of_tasks
                 )
             )
+            # fmt: on
 
-            for title in titles_completed:
-                print(f"\t {title}")
+            for task in done_tasks:
+                print(f"\t {task}")
 
 
 if __name__ == "__main__":
-    get_employee()
+    data_from_api()
