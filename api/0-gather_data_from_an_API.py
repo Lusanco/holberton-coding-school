@@ -3,8 +3,6 @@
     Api REST
 """
 
-
-import json
 import requests
 from sys import argv
 
@@ -19,34 +17,28 @@ def get_employee(id=None):
         try:
             id = int(argv[1])
         except ValueError:
-            pass
             return
 
     if isinstance(id, int):
-        user = requests.get(f"https://jsonplaceholder.typicode.com/users/{id}")
-        to_dos = requests.get(
-            f"https://jsonplaceholder.typicode.com/todos/?userId={id}"
-        )
+        base = "https://jsonplaceholder.typicode.com"
+        user = requests.get(f"{base}/users/{id}").json()
+        to_dos = requests.get(f"{base}/todos/?userId={id}").json()
 
-        if to_dos.status_code == 200 and user.status_code == 200:
-            user = json.loads(user.text)
-            to_dos = json.loads(to_dos.text)
-
+        if user and to_dos:
             total_tasks = len(to_dos)
-            tasks_completed = 0
-            titles_completed = []
-
-            for to_do in to_dos:
-                if to_do["completed"] is True:
-                    tasks_completed += 1
-                    titles_completed.append(to_do["title"])
-
+            # fmt: off
+            titles_completed = [task["title"]
+                                for task in to_dos
+                                if task["completed"]]
+            # fmt: on
             tasks_completed = len(titles_completed)
 
             print(
-                f"Employee {user['name']} is done with tasks\
-                  ({tasks_completed}/{total_tasks})"
+                "Employee {} is done with tasks({}/{}):".format(
+                    user["name"], tasks_completed, total_tasks
+                )
             )
+
             for title in titles_completed:
                 print(f"\t {title}")
 
