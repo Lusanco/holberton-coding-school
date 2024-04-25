@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-
-# Assign values to variables with descriptive names and types
+"""
+Assign values to variables with descriptive names and types
+"""
 
 # An integer
 a: int = 1
