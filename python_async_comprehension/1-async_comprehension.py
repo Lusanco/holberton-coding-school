@@ -1,30 +1,30 @@
 #!/usr/bin/env python3
 """
-Measures the total runtime of executing
-async_comprehension four times in parallel.
+Asynchronously collects random floating-point
+numbers using an asynchronous comprehension.
 """
 
-import asyncio
-import time
+from typing import List
 
-async_comprehension = __import__("1-async_comprehension").async_comprehension
+async_generator = __import__("0-async_generator").async_generator
 
 
-async def measure_runtime() -> float:
+async def async_comprehension() -> List[float]:
     """
+    This function employs an asynchronous comprehension to
+    efficiently iterate over the `async_generator` function
+    and collect the yielded random floating-point numbers.
+    The comprehension iterates asynchronously over the generator,
+    capturing each yielded value between 0 and 10 (inclusive)
+    with a one-second interval. Finally, the function returns
+    a list containing all the collected random numbers.
+
+    Args:
+        None (implicit): This function doesn't accept any arguments.
+
     Returns:
-        float: The total runtime in seconds.
+        List[float]: A list containing the asynchronously collected
+        random floating-point numbers between 0.0 and 10.0 (inclusive).
     """
-    start_time = time.perf_counter()
 
-    await asyncio.gather(
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension(),
-    )
-
-    end_time = time.perf_counter()
-    total_runtime = end_time - start_time
-
-    return total_runtime
+    return [num async for num in async_generator()]
