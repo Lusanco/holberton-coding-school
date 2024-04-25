@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-"""Returns the first element of a sequence
+"""
+Returns the first element of a sequence
 if it exists, otherwise returns None.
 
 Args:
@@ -17,4 +18,8 @@ from typing import Sequence, Any, Optional
 
 def safe_first_element(lst: Sequence[Any]) -> Optional[Any]:
     """Returns the first element of a sequence or None."""
-    return lst[0] if lst else None
+    # return lst[0] if lst else None
+    if lst:
+        return lst[0]
+    else:
+        return None
