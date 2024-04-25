@@ -18,8 +18,18 @@ from typing import Sequence, Any, Optional
 # The types of the elements of the input are not known
 def safe_first_element(lst: Sequence[Any]) -> Optional[Any]:
     """
-    Return the first element of lst if lst is true,
-    else return none. 
+    Safely returns the first element
+    of a sequence if it exists.
+
+    Args:
+        lst (Sequence[Any]): A sequence
+        (list, tuple, etc.) containing
+        elements of any type.
+
+    Returns:
+        Optional[Any]: The first element
+        of the sequence if it exists,
+        otherwise None.
     """
     
     if lst:
