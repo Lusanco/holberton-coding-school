@@ -32,24 +32,29 @@ class Server:
         if self.__indexed_dataset is None:
             dataset = self.dataset()
             truncated_dataset = dataset[:1000]
-            self.__indexed_dataset = {i: dataset[i] for i in range(len(dataset))}
+            # fmt: off
+            self.__indexed_dataset = {
+                i: dataset[i] for i in range(len(dataset))}
+            # fmt: on
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
-        Function that returns a dictionary with the following key-value
-        pairs:
+        Function that returns a dictionary with
+        the following key-value pairs:
 
-        - index: the current start index of the return page. That is the
-        index of the first item in the current page of results.
+        - index: the current start index of the
+        return page. That is the index of the
+        first item in the current page of results.
         - data: the actual page of data.
         - page_size: the current page size.
-        - next_index: the next index to query with. That is the index of
-        the first item after the last item on the current page.
+        - next_index: the next index to query with.
+        That is the index of the first item after
+        the last item on the current page.
         """
         hyper_data = self.indexed_dataset()
 
-        assert type(index) == int and type(page_size) == int
+        assert type(index) is int and type(page_size) is int
         assert 0 <= index < len(hyper_data)
 
         next_index = index + page_size
