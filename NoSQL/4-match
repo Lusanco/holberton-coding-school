@@ -1,1 +1,2 @@
-// my comment
+// View All Documents Of The Collection
+db.school.find({ name: "Holberton school" });

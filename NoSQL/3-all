@@ -1,1 +1,2 @@
-// my comment
+// Lists All Documents In The School Collection
+db.school.find();
