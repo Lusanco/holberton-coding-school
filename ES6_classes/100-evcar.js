@@ -6,8 +6,11 @@ export default class EVCar extends Car {
     this._range = range;
   }
 
+  //   cloneCar() {
+  //     const clone = new super.constructor();
+  //     return clone;
+  //   }
   cloneCar() {
-    const clone = new super.constructor();
-    return clone;
+    return new Car();
   }
 }
