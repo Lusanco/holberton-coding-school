@@ -12,7 +12,7 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
   if (err) {
     // Convert error object to a more informative JSON-like format
     console.error({
-      error: err,
+      error: err
     });
   } else {
     console.log(data);
