@@ -13,5 +13,8 @@
     "@eslint/js": "^9.2.0",
     "eslint": "^9.2.0",
     "globals": "^15.2.0"
+  },
+  "dependencies": {
+    "request": "^2.88.2"
   }
 }
