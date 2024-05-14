@@ -11,8 +11,32 @@ const request = require('request');
 // 3
 // guillaume@ubuntu:~/$
 
+// const url = process.argv[2];
+// const charID = 'https://swapi-api.hbtn.io/api/people/18/';
+
+// if (!url) {
+//   console.error('Error: Please provide a URL as an argument.');
+//   process.exit(1);
+// }
+
+// request(url, (error, response) => {
+//   if (error) {
+//     console.error(error.message);
+//     process.exit(1); // Exit with an error code
+//   } else {
+//     const data = JSON.parse(response.body);
+//     let count = 0;
+//     data.results.forEach(film => {
+//       if (film.characters.includes(charID)) {
+//         count++;
+//       }
+//     });
+//     console.log(count);
+//   }
+// });
+
 const url = process.argv[2];
-const charID = 'https://swapi-api.hbtn.io/api/people/18/';
+const charID = 18; // Use the numeric character ID directly
 
 if (!url) {
   console.error('Error: Please provide a URL as an argument.');
@@ -27,7 +51,8 @@ request(url, (error, response) => {
     const data = JSON.parse(response.body);
     let count = 0;
     data.results.forEach(film => {
-      if (film.characters.includes(charID)) {
+      const characterID = film.characters.find(characterURL => characterURL.endsWith(`/${charID}/`));
+      if (characterID) {
         count++;
       }
     });
