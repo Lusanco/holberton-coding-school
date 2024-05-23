@@ -1,48 +1,26 @@
-const http = require('http');
-// Import the HTTP module
-const args = process.argv.slice(2); // Get the arguments
+const express = require('express');
+// const fs = require('fs').promises;
 const countStudents = require('./3-read_file_async');
-// Import the countStudents function
-const database = args[0]; // Get the database argument
 
-// Create an HTTP server
-const app = http.createServer(async (req, res) => {
-  // Set the response status code and header
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
+const app = express();
+const port = 1245;
+const databaseFilePath = process.argv[2];
 
-  // Get the URL
-  const { url } = req;
+app.get('/', (req, res) => {
+  res.type('text').send('Hello Holberton School!');
+});
 
-  // Check the URL
-  if (url === '/') {
-    // Send the response
-    res.write('Hello Holberton School!');
-    // If the database argument is not provided
-  } else if (url === '/students') {
-    // Send the response
-    res.write('This is the list of our students\n');
-    // Try to count the students
-    try {
-      const students = await countStudents(database);
-      res.end(`${students.join('\n')}`);
-      // If an error occurs
-    } catch (error) {
-      // Send the error message
-      res.end(error.message);
-    }
+app.get('/students', async (req, res) => {
+  try {
+    const studentsData = await countStudents(databaseFilePath);
+    res.type('text').send(`This is the list of our students\n${studentsData}`);
+  } catch (err) {
+    res.status(500).send('Internal Server Error');
   }
-  // Send not fond status code if the URL is not valid
-  res.statusCode = 404;
-  // End the connection
-  res.end();
 });
 
-// Set server's port
-app.listen(1245, () => {
-  // Log the server's port
-  console.log('Server is listening on port 1245');
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
 
-// Export the app variable
 module.exports = app;
