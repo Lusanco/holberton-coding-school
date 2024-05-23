@@ -1,39 +1,48 @@
 const http = require('http');
-const fs = require('fs').promises; // Assuming 3-read_file_async uses promises
+// Import the HTTP module
+const args = process.argv.slice(2); // Get the arguments
+const countStudents = require('./3-read_file_async');
+// Import the countStudents function
+const database = args[0]; // Get the database argument
 
-const args = process.argv.slice(2);
-const DATABASE_FILE = args[0]; // Use a clearer variable name
-
-const hostname = '127.0.0.1';
-const port = 1245;
-
+// Create an HTTP server
 const app = http.createServer(async (req, res) => {
+  // Set the response status code and header
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
+
+  // Get the URL
   const { url } = req;
 
+  // Check the URL
   if (url === '/') {
-    res.end('Hello Holberton School!');
+    // Send the response
+    res.write('Hello Holberton School!');
+    // If the database argument is not provided
   } else if (url === '/students') {
+    // Send the response
     res.write('This is the list of our students\n');
+    // Try to count the students
     try {
-      const students = await fs.readFile(DATABASE_FILE, 'utf-8'); // Use fs.promises
-      // Call a separate function to process and format students (optional)
-      // const formattedStudents = formatStudents(students);
-      res.end(students); // Assuming students data is already formatted
+      const students = await countStudents(database);
+      res.end(`${students.join('\n')}`);
+      // If an error occurs
     } catch (error) {
-      console.error(error); // Log error for debugging
-      res.statusCode = 500; // Set internal server error status code
-      res.end('Error reading student data');
+      // Send the error message
+      res.end(error.message);
     }
-  } else {
-    res.statusCode = 404;
-    res.end('Not found');
   }
+  // Send not fond status code if the URL is not valid
+  res.statusCode = 404;
+  // End the connection
+  res.end();
 });
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}`);
+// Set server's port
+app.listen(1245, () => {
+  // Log the server's port
+  console.log('Server is listening on port 1245');
 });
 
+// Export the app variable
 module.exports = app;
