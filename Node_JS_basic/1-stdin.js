@@ -1,10 +1,15 @@
-process.stdout.write('Welcome to Holberton School, what is your name?\n');
+const readline = require('readline');
 
-process.stdin.on('data', (data) => {
-  const name = data.toString().trim();
-  process.stdout.write(`Your name is: ${name}\n`);
-  process.stdout.write('This important software is now closing\n');
-  process.exit();
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
 });
 
-process.stdin.resume();
+console.log('Welcome to Holberton School, what is your name?');
+
+rl.question('', (name) => {
+  const trimmed = name.trim();
+  console.log(`Your name is: ${trimmed || 'No name provided'}`);
+  console.log('This important software is now closing');
+  rl.close();
+});
