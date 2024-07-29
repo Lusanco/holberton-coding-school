@@ -12,7 +12,7 @@ In this and future projects, we are tasked with implementing a webpage from a pr
   - An overview was introduced, and the task of writing the project `README.md`.
 - `1. Header`
   - The initial html structure was made alongside with the creation of the `header` element and its specifications.
-    ``` html
+``` html
   <!-- Task 1: Create HTML skeleton with header -->
   <!doctype html>
   <html lang="en">
