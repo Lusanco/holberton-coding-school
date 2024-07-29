@@ -12,14 +12,34 @@ In this and future projects, we are tasked with implementing a webpage from a pr
   - An overview was introduced, and the task of writing the project `README.md`.
 - `1. Header`
   - The initial html structure was made alongside with the creation of the `header` element and its specifications.
-    - link element with an image inside
-      - a
-        - img
-    - block of 3 link elements
-      - nav
-        - a
-        - a
-        - a
+    ``` html
+<!-- Task 1: Create HTML skeleton with header -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML, advanced</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Clean, semantic HTML layout based on the provided design." />
+</head>
+
+<body>
+    <header>
+        <a href="#">
+            <img src="#" alt="logo">
+        </a>
+        <nav>
+            <a href="#">Courses</a>
+            <a href="#">Pricing</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+</body>
+
+</html>
+    ```
+
 - `2. Banner`
   - Create a banner inside the header element.
     - section inside the header
