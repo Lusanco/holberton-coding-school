@@ -1,4 +1,16 @@
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-Regular.otf") format("otf");
+}
+
+@font-face {
+  font-family: Spincycle;
+  src: url("fonts/spincycle_ot.otf") format("otf");
+}
+
 body {
   margin: 0;
   padding: 0;
+  color: #ffffff;
+  font-family: SourceSansPro, Spincycle, Arial, Helvetica, sans-serif;
 }
