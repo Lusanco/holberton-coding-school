@@ -1,0 +1,10 @@
+// 1-color_variable.scss
+$color-variable: #3d3d3d
+
+body {
+    color: $color-variable;
+}
+
+p {
+    color: $color-variable;
+}
