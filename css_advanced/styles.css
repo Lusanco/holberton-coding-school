@@ -1,11 +1,47 @@
 @font-face {
   font-family: SourceSansPro;
-  src: url("fonts/SourceSansPro-Regular.otf") format("otf");
+  src: url("fonts/SourceSansPro-Semibold.otf") format("opentype"),
+    url("fonts/SourceSansPro-BlackIt.otf") format("opentype"),
+    url("fonts/SourceSansPro-Black.otf") format("opentype"),
+    url("fonts/SourceSansPro-BoldIt.otf") format("opentype"),
+    url("fonts/SourceSansPro-ExtraLight.otf") format("opentype"),
+    url("fonts/SourceSansPro-ExtraLightIt.otf") format("opentype"),
+    url("fonts/SourceSansPro-It.otf") format("opentype"),
+    url("fonts/SourceSansPro-Light.otf") format("opentype"),
+    url("fonts/SourceSansPro-LightIt.otf") format("opentype"),
+    url("fonts/SourceSansPro-Regular.otf") format("opentype"),
+    url("fonts/SourceSansPro-Bold.otf") format("opentype"),
+    url("fonts/SourceSansPro-SemiboldIt.otf") format("opentype");
 }
 
 @font-face {
   font-family: Spincycle;
-  src: url("fonts/spincycle_ot.otf") format("otf");
+  src: url("fonts/spincycle_3d_ot.otf") format("opentype"),
+    url("fonts/spincycle_ot.otf") format("opentype");
+}
+
+.bg-purp {
+  background-color: #c271ff;
+}
+
+.text-purp {
+  color: #c271ff;
+}
+
+.bg-dark {
+  background-color: #071629;
+}
+
+.text-dark {
+  color: #071629;
+}
+
+.bg-light {
+  background-color: #ffffff;
+}
+
+.text-light {
+  color: #ffffff;
 }
 
 body {
@@ -13,4 +49,79 @@ body {
   padding: 0;
   color: #ffffff;
   font-family: SourceSansPro, Spincycle, Arial, Helvetica, sans-serif;
+}
+
+header {
+  height: 68rem;
+  display: flex;
+  flex-direction: column;
+  background-image: url("./imgs/background.png");
+  background-repeat: no-repeat;
+  background-position: bottom bottom;
+  background-size: contain;
+}
+
+header nav {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  margin: 1rem;
+  max-width: 69rem;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+header a {
+  display: flex;
+  margin: auto 0%;
+}
+
+header nav div {
+  display: flex;
+  margin: auto 0%;
+  gap: 2rem;
+}
+header nav div a {
+  color: #ffffff;
+  font-size: 1rem; /* 16px */
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero-section {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-elements h1 {
+  /* Get Schooled weight and letter spacing are not it */
+  /* Fix after finishing the rest of tasks */
+  font-size: 5rem;
+  font-weight: bolder;
+  text-align: center;
+  letter-spacing: -0.05em;
+  margin-bottom: 0%;
+}
+@media (min-width: 768px) {
+  .hero-elements h1 {
+    font-size: 7.5rem; /* 120px */
+  }
+}
+
+.hero-elements p {
+  display: flex;
+  flex-direction: row;
+  height: 1rem;
+  width: 100%;
+  font-weight: bold;
+  margin: 0% auto;
+  gap: 4rem;
+  justify-content: center;
 }
