@@ -1,4 +1,5 @@
 /* STARTER CSS FILE */
+
 /* SUMMARY
     1. GLOBAL
     2. LAYOUT
@@ -334,7 +335,7 @@ a:active {
 
 /* Grid
       ============================= */
-row {
+.row {
   display: flex;
 }
 
