@@ -23,9 +23,9 @@ def parse_headings(line):
         line = line[1:]
 
     if 0 < heading_level <= 6:
-        return (
-            f"<h{heading_level}>{parse_inline_styles(line.strip())}</h{heading_level}>"
-        )
+        hl = heading_level
+        pis = parse_inline_styles(line.strip())
+        return f"<h{hl}>{pis}</h{hl}>"
     return line
 
 
@@ -34,7 +34,8 @@ def parse_unordered_list(lines):
     count = 0
     for line in lines:
         if line.strip().startswith("- "):
-            html_list.append(f"<li>{parse_inline_styles(line.strip()[2:])}</li>")
+            pis = parse_inline_styles(line.strip()[2:])
+            html_list.append(f"<li>{pis}</li>")
             count += 1
         else:
             break
@@ -47,7 +48,8 @@ def parse_ordered_list(lines):
     count = 0
     for line in lines:
         if line.strip().startswith("* "):
-            html_list.append(f"<li>{parse_inline_styles(line.strip()[2:])}</li>")
+            pis = parse_inline_styles(line.strip()[2:])
+            html_list.append(f"<li>{pis}</li>")
             count += 1
         else:
             break
