@@ -52,7 +52,7 @@ def parse_paragraph(lines):
         else:
             break
     html_paragraph.append("</p>")
-    return "\n".join(html_paragraph), len(html_paragraph) - 2
+    return "\n".join(html_paragraph), len(html_paragraph) - 1
 
 
 if __name__ == "__main__":
