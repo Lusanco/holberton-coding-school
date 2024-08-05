@@ -31,6 +31,17 @@ def parse_unordered_list(lines):
     return "\n".join(html_list), len(html_list) - 2
 
 
+def parse_ordered_list(lines):
+    html_list = ["<ol>"]
+    for line in lines:
+        if line.startswith("* "):
+            html_list.append(f"<li>{line[2:].strip()}</li>")
+        else:
+            break
+    html_list.append("</ol>")
+    return "\n".join(html_list), len(html_list) - 2
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         usage = "Usage: ./markdown2html.py README.md README.html"
@@ -51,6 +62,10 @@ if __name__ == "__main__":
             if line.startswith("- "):
                 ul_html, items_count = parse_unordered_list(lines[i:])
                 html_file.write(ul_html + "\n")
+                i += items_count
+            elif line.startswith("* "):
+                ol_html, items_count = parse_ordered_list(lines[i:])
+                html_file.write(ol_html + "\n")
                 i += items_count
             else:
                 html_line = parse_headings(line)
