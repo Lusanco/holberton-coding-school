@@ -10,7 +10,6 @@ import os
 
 
 def parse_headings(line):
-    """Parse Markdown headings and return corresponding HTML."""
     heading_level = 0
     while line.startswith("#"):
         heading_level += 1
@@ -19,6 +18,17 @@ def parse_headings(line):
     if 0 < heading_level <= 6:
         return f"<h{heading_level}>{line.strip()}</h{heading_level}>\n"
     return line
+
+
+def parse_unordered_list(lines):
+    html_list = ["<ul>"]
+    for line in lines:
+        if line.startswith("- "):
+            html_list.append(f"<li>{line[2:].strip()}</li>")
+        else:
+            break
+    html_list.append("</ul>")
+    return "\n".join(html_list), len(html_list) - 2
 
 
 if __name__ == "__main__":
@@ -34,8 +44,17 @@ if __name__ == "__main__":
         sys.exit(1)
 
     with open(input_file, "r") as md_file, open(output_file, "w") as html_file:
-        for line in md_file:
-            html_line = parse_headings(line)
-            html_file.write(html_line)
+        lines = md_file.readlines()
+        i = 0
+        while i < len(lines):
+            line = lines[i].strip()
+            if line.startswith("- "):
+                ul_html, items_count = parse_unordered_list(lines[i:])
+                html_file.write(ul_html + "\n")
+                i += items_count
+            else:
+                html_line = parse_headings(line)
+                html_file.write(html_line)
+            i += 1
 
     sys.exit(0)
