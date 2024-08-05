@@ -23,8 +23,8 @@ def parse_headings(line):
 def parse_unordered_list(lines):
     html_list = ["<ul>"]
     for line in lines:
-        if line.startswith("- "):
-            html_list.append(f"<li>{line[2:].strip()}</li>")
+        if line.strip().startswith("- "):
+            html_list.append(f"<li>{line.strip()[2:]}</li>")
         else:
             break
     html_list.append("</ul>")
@@ -34,12 +34,25 @@ def parse_unordered_list(lines):
 def parse_ordered_list(lines):
     html_list = ["<ol>"]
     for line in lines:
-        if line.startswith("* "):
-            html_list.append(f"<li>{line[2:].strip()}</li>")
+        if line.strip().startswith("* "):
+            html_list.append(f"<li>{line.strip()[2:]}</li>")
         else:
             break
     html_list.append("</ol>")
     return "\n".join(html_list), len(html_list) - 2
+
+
+def parse_paragraph(lines):
+    html_paragraph = ["<p>"]
+    for i, line in enumerate(lines):
+        if line.strip():
+            if i > 0:
+                html_paragraph.append("<br />")
+            html_paragraph.append(line.strip())
+        else:
+            break
+    html_paragraph.append("</p>")
+    return "\n".join(html_paragraph), len(html_paragraph) - 2
 
 
 if __name__ == "__main__":
@@ -59,7 +72,11 @@ if __name__ == "__main__":
         i = 0
         while i < len(lines):
             line = lines[i].strip()
-            if line.startswith("- "):
+            if line.startswith("#"):
+                html_line = parse_headings(line)
+                html_file.write(html_line)
+                i += 1
+            elif line.startswith("- "):
                 ul_html, items_count = parse_unordered_list(lines[i:])
                 html_file.write(ul_html + "\n")
                 i += items_count
@@ -67,9 +84,11 @@ if __name__ == "__main__":
                 ol_html, items_count = parse_ordered_list(lines[i:])
                 html_file.write(ol_html + "\n")
                 i += items_count
+            elif line:
+                p_html, lines_count = parse_paragraph(lines[i:])
+                html_file.write(p_html + "\n")
+                i += lines_count
             else:
-                html_line = parse_headings(line)
-                html_file.write(html_line)
-            i += 1
+                i += 1
 
     sys.exit(0)
