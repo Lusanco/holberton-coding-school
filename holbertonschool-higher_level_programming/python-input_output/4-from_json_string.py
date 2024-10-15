@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+"""
+Module Name: 4-from_json_string.py
+Description: returns an object
+(Python data structure) represented
+by a JSON string
+Authors: Lusanco
+"""
+
+
+import json
+
+
+def from_json_string(my_str):
+    """returns an object
+    (Python data structure) represented
+    by a JSON string"""
+    return json.loads(my_str)
