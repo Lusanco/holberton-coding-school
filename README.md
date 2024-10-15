@@ -22,4 +22,4 @@ This repository is currently organized into a single "repos" directory, containi
 
 ## Note:
 
-This archive (currently) is a **work in progress**, and I may continue to add or update projects as I revisit my learning materials. 
+This repository serves as a living archive of my learning journey at Holberton Coding School. As such, it may contain projects in various stages of completion and may not always adhere to strict coding standards. I plan to continuously work to refine and improve the organization and content of this repository.
