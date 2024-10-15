@@ -1,0 +1,21 @@
+# Makefile
+
+# compiler
+CC = gcc
+
+# flags
+CFLAGS = -g -Wall
+
+# sources and headers
+SRCS = main.c school.c
+HEADERS = m.h
+
+# output
+OUTPUT = school
+
+# build rules
+all: $(SRCS) $(HEADERS)
+	$(CC) $(CFLAGS) $(SRCS) -o $(OUTPUT)
+
+clean:
+	rm -f $(OUTPUT)
